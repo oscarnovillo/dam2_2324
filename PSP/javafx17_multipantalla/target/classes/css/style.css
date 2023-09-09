@@ -1,0 +1,20 @@
+.background {
+    -fx-background-color: #FFFFFF;
+    -fx-border-width: 1px;
+    -fx-border-color: #b80909;
+}
+.button:hover {
+    -fx-background-color: red;
+}
+.text-field-mio{
+    -fx-background-color: #1d1d1d;
+    -fx-border-width: 10px;
+    -fx-border-color: #b80909;
+    -fx-font-family: 'Grape Nuts', cursive;
+}
+.bienvenida{
+    -fx-font-family: 'Grape Nuts', cursive;
+    -fx-font-size: 50px;
+    -fx-font-weight:  bold;
+
+}

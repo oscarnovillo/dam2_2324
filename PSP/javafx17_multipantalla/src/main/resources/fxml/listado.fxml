@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="pantallaListado" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.pantallas.listado.ListadoController">
+   <children>
+      <MFXTableView fx:id="tabla" layoutX="48.0" layoutY="100.0" prefHeight="463.0" prefWidth="506.0" />
+      <MFXButton fx:id="ver" layoutX="233.0" layoutY="642.0" mnemonicParsing="false" onAction="#ver" text="Ver" />
+      <MFXTextField fx:id="txtNombre" layoutX="72.0" layoutY="624.0" />
+      <TableView fx:id="tablaNormal" layoutX="31.0" prefHeight="93.0" prefWidth="531.0">
+        <columns>
+          <TableColumn fx:id="colCol" prefWidth="75.0" text="coll" />
+          <TableColumn fx:id="colDes" prefWidth="75.0" text="des" />
+           <TableColumn fx:id="colNum" prefWidth="75.0" text="numero" />
+        </columns>
+      </TableView>
+      <MFXButton fx:id="verNormal" layoutX="375.0" layoutY="642.0" mnemonicParsing="false" onAction="#verNormal" text="verNomal" />
+   </children>
+</AnchorPane>

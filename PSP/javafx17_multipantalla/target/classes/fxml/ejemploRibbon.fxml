@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.pixelduke.control.*?>
+<?import com.pixelduke.control.ribbon.*?>
+<?import io.github.palexdev.materialfx.controls.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="400.0" prefWidth="600.0"  xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.pantallas.principal.PrincipalController">
+    <center>
+        <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <children>
+                <MFXTextField fx:id="txtField" layoutX="274.0" layoutY="71.0" />
+                <MFXButton fx:id="button" layoutX="289.0" layoutY="157.0" mnemonicParsing="false" text="Button" />
+            </children>
+        </AnchorPane>
+    </center>
+    <top>
+        <Ribbon BorderPane.alignment="CENTER">
+            <quickAccessBar>
+                <QuickAccessBar>
+                    <buttons>
+                        <MFXButton text="New" />
+                        <MFXButton text="Open" />
+                    </buttons>
+                </QuickAccessBar>
+            </quickAccessBar>
+            <tabs>
+                <RibbonTab text="Tab 1">
+                    <ribbonGroups>
+                        <RibbonGroup title="File">
+                            <nodes>
+                                <MFXButton text="New" />
+                                <MFXButton text="Open" />
+                                <MFXButton text="Save" />
+                                <MFXButton text="Save As" />
+                            </nodes>
+                        </RibbonGroup>
+                    </ribbonGroups>
+                </RibbonTab>
+                <RibbonTab text="Tab 2" />
+
+            </tabs>
+        </Ribbon>
+    </top>
+</BorderPane>

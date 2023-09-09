@@ -1,0 +1,28 @@
+
+l
+java:S1104""OMake ver a static final constant or non-public and provide accessors if needed.(þÔ¤ë8¹—‹³¦1
+]	java:S1259"<This block of commented-out lines of code should be removed.(˜Ý„ÿÿÿÿÿ8ö—‹³¦1
+X	java:S125="<This block of commented-out lines of code should be removed.(Ñõ¦”8ö—‹³¦1
+N
+java:S1602K",Remove useless curly braces around statement(»¶‚ÿÿÿÿÿ8ù—‹³¦1
+N
+java:S1602N",Remove useless curly braces around statement(ß­›ßûÿÿÿÿ8ù—‹³¦1
+N
+java:S1602j",Remove useless curly braces around statement(ùýÐðøÿÿÿÿ8ý—‹³¦1
+X	java:S125"<This block of commented-out lines of code should be removed.(ý±â…8¥˜‹³¦1
+O
+java:S1602†",Remove useless curly braces around statement(ùýÐðøÿÿÿÿ8¦˜‹³¦1
+Y	java:S125Œ"<This block of commented-out lines of code should be removed.(¹¬Ö8¦˜‹³¦1
+J
+java:S1602·",Remove useless curly braces around statement(¾šÇƒ8«˜‹³¦1
+X	java:S125Ä"<This block of commented-out lines of code should be removed.(¿Ëâ'8­˜‹³¦1
+O
+java:S1602Î",Remove useless curly braces around statement(’ÒïÇúÿÿÿÿ8®˜‹³¦1
+U
+java:S1172â"2Remove this unused method parameter "actionEvent".(ã€±Ÿùÿÿÿÿ8°˜‹³¦1
+_
+java:S1128	"BRemove this unused import 'io.reactivex.rxjava3.core.Completable'.(Óð¯è8±˜‹³¦1
+T
+java:S1144A"2Remove this unused private "asynConSingle" method.(Øë¤˜ÿÿÿÿÿ8±˜‹³¦1
+S
+java:S1144X"1Remove this unused private "asyncConTask" method.(í˜ÖÄþÿÿÿÿ8±˜‹³¦1

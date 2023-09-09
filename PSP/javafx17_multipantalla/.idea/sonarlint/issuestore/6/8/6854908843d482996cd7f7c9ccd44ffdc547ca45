@@ -1,0 +1,21 @@
+
+f
+java:S1301H"KReplace this "switch" statement by "if" statements to increase readability.(ØÞ«ðúÿÿÿÿ
+V	java:S125J"<This block of commented-out lines of code should be removed.(“Â­þøÿÿÿÿ
+Q	java:S125`"<This block of commented-out lines of code should be removed.(‘Ç±
+W	java:S125ƒ"<This block of commented-out lines of code should be removed.(ªÊö™ûÿÿÿÿ
+W	java:S125š"<This block of commented-out lines of code should be removed.(ûÏŠÊüÿÿÿÿ
+U
+java:S1117»"9Rename "alert" which hides the field declared at line 57.(Ö×Íõÿÿÿÿÿ
+N
+java:S1172Ì"2Remove this unused method parameter "actionEvent".(‡Âž¨ÿÿÿÿÿ
+U
+java:S1117Í"9Rename "alert" which hides the field declared at line 57.(Ö×Íõÿÿÿÿÿ
+N
+java:S1172Ô"2Remove this unused method parameter "actionEvent".(ˆ÷‰àøÿÿÿÿ
+R	java:S125Õ"<This block of commented-out lines of code should be removed.(ôö’€
+A	java:S106á"+Replace this use of System.out by a logger.(Îø÷
+R	java:S125ô"<This block of commented-out lines of code should be removed.(‰ÍÎÕ
+=	java:S131û""Add a default case to this switch.(¥Û¢ñùÿÿÿÿ
+L
+java:S1068;"6Remove this unused "pantallaBienvenida" private field.(¢Ö˜­

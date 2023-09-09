@@ -1,0 +1,16 @@
+
+X	java:S125"<This block of commented-out lines of code should be removed.(Ñ¨„ã8²ªò°¦1
+r	java:S116"QRename this field "_state" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ï¼İîşÿÿÿÿ8²ªò°¦1
+D
+java:S1481"'Remove this unused "ls" local variable.(ŒÔôı8µªò°¦1
+D
+java:S1481K"'Remove this unused "ls" local variable.(ŒÔôı8¼ªò°¦1
+X	java:S125M"<This block of commented-out lines of code should be removed.(Ò§¬€8½ªò°¦1
+N
+java:S1602R",Remove useless curly braces around statement(‘İÈğşÿÿÿÿ8½ªò°¦1
+N
+java:S1602T",Remove useless curly braces around statement(ùıĞğøÿÿÿÿ8½ªò°¦1
+]
+java:S1128"@Remove this unused import 'io.reactivex.rxjava3.core.Scheduler'.(ÇÓŠ•8¾ªò°¦1
+h
+java:S1128"KRemove this unused import 'org.pdfsam.rxjavafx.schedulers.JavaFxScheduler'.(â²Éé8¾ªò°¦1
