@@ -271,7 +271,7 @@ public class PrincipalController {
     public void onLoginHecho(Usuario usuario) {
         actualUser = usuario;
         menuPrincipal.setVisible(true);
-        if (actualUser.getNombre().equals("admin")) {
+        if (actualUser.nombre().equals("admin")) {
             menuHelp.setVisible(false);
         }
 

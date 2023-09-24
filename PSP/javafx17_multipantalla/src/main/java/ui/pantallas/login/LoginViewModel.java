@@ -1,5 +1,6 @@
 package ui.pantallas.login;
 
+import common.*;
 import domain.modelo.Usuario;
 import domain.usecases.LoginUseCase;
 import jakarta.inject.Inject;
@@ -23,13 +24,28 @@ public class LoginViewModel {
 
 
     public void doLogin(Usuario usuario) {
-        if (loginUseCase.doLogin(usuario))
-        {
-            state.setValue(new LoginState(true,null));
-        }
-        else
-        {
-            state.setValue(new LoginState(false,"usuario "+usuario.getNombre()+" no valido"));
-        }
+
+        loginUseCase.doLogin(usuario)
+                .peek(booleanResultMio -> {
+                    switch (booleanResultMio){
+                        case Loading<Boolean> l -> { }
+                        case Success<Boolean> s -> state.setValue(new LoginState(s.getData(), null));
+                        case ErrorTest<Boolean> errorTest -> {
+                        }
+                    }
+
+                })
+                .peekLeft(errorApp -> {
+                    switch(errorApp){
+                        case Error2 e2 -> { var k=3;}
+                        case Error3 error3 -> { var i = 2;
+                        }
+                    }
+
+                    state.setValue(new LoginState(false, "usuario " + usuario.nombre() + " no valido"));
+                } );
+
+
+
     }
 }

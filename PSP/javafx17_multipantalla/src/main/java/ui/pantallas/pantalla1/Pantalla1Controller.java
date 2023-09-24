@@ -61,7 +61,7 @@ public class Pantalla1Controller extends BasePantallaController {
 
     @Override
     public void principalCargado() {
-        lbBienvenido.setText(getPrincipalController().getActualUser().getNombre());
+        lbBienvenido.setText(getPrincipalController().getActualUser().nombre());
         animarPantalla();
     }
 

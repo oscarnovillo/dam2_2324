@@ -1,7 +1,10 @@
 package ui.pantallas.login;
 
+import common.Error2;
+import common.Success;
 import domain.modelo.Usuario;
 import domain.usecases.LoginUseCase;
+import io.vavr.control.Either;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -45,7 +48,7 @@ class LoginViewModelTest {
         Usuario user = new Usuario("admin", "");
         LoginState stateEsperado  = new LoginState(true,null);
         //when(loginUseCase.doLogin(argThat(usuario -> !usuario.getNombre().equals("admin")))).thenReturn(false);
-        when(loginUseCase.doLogin(argThat(usuario -> usuario.getNombre().equals("admin")))).thenReturn(true);
+        when(loginUseCase.doLogin(argThat(usuario -> usuario.nombre().equals("admin")))).thenReturn(Either.right(new Success<>(true)));
 
         //when
         viewModel.doLogin(user);
@@ -64,8 +67,8 @@ class LoginViewModelTest {
 
         //given
         Usuario user = new Usuario("otro", "");
-        LoginState stateEsperado  = new LoginState(false,"usuario "+user.getNombre()+" no valido");
-        when(loginUseCase.doLogin(argThat(usuario -> usuario.getNombre().equals("otro")))).thenReturn(false);
+        LoginState stateEsperado  = new LoginState(false,"usuario "+user.nombre()+" no valido");
+        when(loginUseCase.doLogin(argThat(usuario -> usuario.nombre().equals("otro")))).thenReturn(Either.left(new Error2("false")));
 
         //when
         viewModel.doLogin(user);

@@ -1,7 +1,10 @@
 package ui;
 
+import common.Error2;
+import common.Success;
 import domain.usecases.LoginUseCase;
 import domain.usecases.LoginUseCaseImpl;
+import io.vavr.control.Either;
 import jakarta.enterprise.inject.se.SeContainer;
 import jakarta.enterprise.inject.se.SeContainerInitializer;
 import jakarta.inject.Inject;
@@ -81,7 +84,7 @@ public class TestPantallaLogin extends ApplicationTest {
         //given
         robot.clickOn("#txtUserName");
         robot.write("admin");
-        when(loginUseCase.doLogin(argThat(usuario -> usuario.getNombre().equals("admin")))).thenReturn(true);
+        when(loginUseCase.doLogin(argThat(usuario -> usuario.nombre().equals("admin")))).thenReturn(Either.right(new Success<>(true)));
         //when(loginUseCase.doLogin(any(Usuario.class))).thenReturn(true);
 
         //when
@@ -91,7 +94,7 @@ public class TestPantallaLogin extends ApplicationTest {
 
         //then
 
-        verify(principalController).onLoginHecho(argThat(usuario -> usuario.getNombre().equals("admin")));
+        verify(principalController).onLoginHecho(argThat(usuario -> usuario.nombre().equals("admin")));
     }
 
     @Test
@@ -99,7 +102,7 @@ public class TestPantallaLogin extends ApplicationTest {
         //given
         robot.clickOn("#txtUserName");
         robot.write("otro");
-        when(loginUseCase.doLogin(argThat(usuario -> !usuario.getNombre().equals("admin")))).thenReturn(false);
+        when(loginUseCase.doLogin(argThat(usuario -> !usuario.nombre().equals("admin")))).thenReturn(Either.left(new Error2("false")));
         //when(loginUseCase.doLogin(any(Usuario.class))).thenReturn(true);
         TextField text = lookup("#txtUserName").queryAs(TextField.class);
         text.setText("otrogggg");
