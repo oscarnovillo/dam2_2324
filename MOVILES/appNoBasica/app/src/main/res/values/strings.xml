@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">appNoBasica</string>
+    <string name="name">name</string>
+    <string name="noelementos">no hay suficientes elementos</string>
+    <string name="radiobutton">RadioButton</string>
+</resources>
