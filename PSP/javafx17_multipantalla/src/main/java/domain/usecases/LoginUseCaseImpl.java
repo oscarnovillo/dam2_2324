@@ -37,7 +37,7 @@ public class LoginUseCaseImpl implements LoginUseCase {
     public Either<ErrorApp, ResultMio<Boolean>> doLogin(Usuario usuario) {
 
         return validateUser(usuario)
-                .flatMap(aBoolean -> validatePassword(usuario))
-                .flatMap(aBoolean -> daoLogin.doLogin(usuario));
+                .flatMap(o -> validatePassword(usuario))
+                .flatMap(o -> daoLogin.doLogin(usuario));
     }
 }
