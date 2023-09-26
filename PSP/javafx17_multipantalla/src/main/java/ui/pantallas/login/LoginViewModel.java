@@ -42,7 +42,7 @@ public class LoginViewModel {
                         }
                     }
 
-                    state.setValue(new LoginState(false, "usuario " + usuario.nombre() + " no valido"));
+                    state.setValue(new LoginState(false, errorApp.getMensaje()));
                 } );
 
 

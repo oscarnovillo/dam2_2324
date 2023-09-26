@@ -73,6 +73,8 @@ class PrincipalControllerTest {
 
     }
 
+    
+
 
     @Test
     void menuItemListadoClick(FxRobot robot) {

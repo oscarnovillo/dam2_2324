@@ -179,7 +179,7 @@ public class PrincipalController {
 
     public void initialize() {
         menuPrincipal.setVisible(false);
-        cargarPantalla(Pantallas.LISTADO);
+        cargarPantalla(Pantallas.LOGIN);
 
     }
 
