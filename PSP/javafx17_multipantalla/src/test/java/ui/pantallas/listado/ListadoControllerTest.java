@@ -72,10 +72,11 @@ class ListadoControllerTest {
 
         stage.show();
 
+
     }
 
     @Test
-    void testListadoController(FxRobot robot) {
+    void testListadController(FxRobot robot) {
         //given
 //        Cromo c = new Cromo("Cromo 1",1,"des");
 //        when(useCase.loadCromos()).thenReturn(List.of(c));
