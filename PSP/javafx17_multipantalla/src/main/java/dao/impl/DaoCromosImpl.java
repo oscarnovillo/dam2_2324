@@ -11,6 +11,7 @@ import io.reactivex.rxjava3.schedulers.Schedulers;
 import io.vavr.control.Either;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
+import lombok.extern.log4j.Log4j2;
 import okhttp3.MediaType;
 import okhttp3.ResponseBody;
 import retrofit2.HttpException;
@@ -20,6 +21,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
 
+@Log4j2
 public class DaoCromosImpl implements DaoCromos {
 
     private final Configuracion configuracion;
@@ -51,6 +53,8 @@ public class DaoCromosImpl implements DaoCromos {
         try {
             Thread.sleep(5000);
         } catch (InterruptedException e) {
+            log.error("aslkjdsdf",e);
+
 
         }
 
