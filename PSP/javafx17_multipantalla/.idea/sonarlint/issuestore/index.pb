@@ -177,3 +177,17 @@ X
 (src/main/java/dao/impl/DaoLoginImpl.java,d\c\dc93d87f6f192408bc0bee328c8f77e509e08153
 c
 3src/main/java/domain/usecases/LoginUseCaseImpl.java,4\0\40ddd7f394b516943aa3ee4cd4ad4c3ae424ad13
+P
+ src/main/java/common/Error2.java,8\3\8343dfcc50db7af5cf8b1d7aecb131e21b90254f
+P
+ src/main/java/common/Error3.java,c\1\c1946c49f4f284972d79502d1438f433a103efeb
+R
+"src/main/java/common/ErrorApp.java,c\7\c7e783fecec563401fcbe95fda9217f09104853c
+S
+#src/main/java/common/ErrorTest.java,4\d\4d8af1235f0da3aa6e7e7df76d3a15bc29a3c617
+Q
+!src/main/java/common/Loading.java,1\d\1dca980f8b974eca7ace5013fc81abd07d67a6ef
+S
+#src/main/java/common/ResultMio.java,5\8\58d43cb0627ae448692ba15a6420ef5f2dddd66b
+Q
+!src/main/java/common/Success.java,7\2\72f0f1124ddb5bfb31fd6b4322f3db854bd1f1e0

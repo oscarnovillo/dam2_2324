@@ -1,21 +1,21 @@
 
 m
-java:S1301H"KReplace this "switch" statement by "if" statements to increase readability.(ØŞ«ğúÿÿÿÿ8Ü§ÌÎ§1
-]	java:S125J"<This block of commented-out lines of code should be removed.(“Â­şøÿÿÿÿ8Œ¨ÌÎ§1
-X	java:S125`"<This block of commented-out lines of code should be removed.(‘Ç±8¨ÌÎ§1
-^	java:S125ƒ"<This block of commented-out lines of code should be removed.(ªÊö™ûÿÿÿÿ8–¨ÌÎ§1
-^	java:S125š"<This block of commented-out lines of code should be removed.(ûÏŠÊüÿÿÿÿ8–¨ÌÎ§1
+java:S1301H"KReplace this "switch" statement by "if" statements to increase readability.(ØŞ«ğúÿÿÿÿ8£è÷À¬1
+]	java:S125J"<This block of commented-out lines of code should be removed.(“Â­şøÿÿÿÿ8Îè÷À¬1
+X	java:S125`"<This block of commented-out lines of code should be removed.(‘Ç±8Ğè÷À¬1
+^	java:S125ƒ"<This block of commented-out lines of code should be removed.(ªÊö™ûÿÿÿÿ8Ûè÷À¬1
+^	java:S125š"<This block of commented-out lines of code should be removed.(ûÏŠÊüÿÿÿÿ8Üè÷À¬1
 \
-java:S1117»"9Rename "alert" which hides the field declared at line 57.(Ö×Íõÿÿÿÿÿ8—¨ÌÎ§1
+java:S1117»"9Rename "alert" which hides the field declared at line 57.(Ö×Íõÿÿÿÿÿ8İè÷À¬1
 U
-java:S1172Ì"2Remove this unused method parameter "actionEvent".(‡Â¨ÿÿÿÿÿ8™¨ÌÎ§1
+java:S1172Ì"2Remove this unused method parameter "actionEvent".(‡Â¨ÿÿÿÿÿ8àè÷À¬1
 \
-java:S1117Í"9Rename "alert" which hides the field declared at line 57.(Ö×Íõÿÿÿÿÿ8™¨ÌÎ§1
+java:S1117Í"9Rename "alert" which hides the field declared at line 57.(Ö×Íõÿÿÿÿÿ8àè÷À¬1
 U
-java:S1172Ô"2Remove this unused method parameter "actionEvent".(ˆ÷‰àøÿÿÿÿ8š¨ÌÎ§1
-Y	java:S125Õ"<This block of commented-out lines of code should be removed.(ôö’€8š¨ÌÎ§1
-H	java:S106á"+Replace this use of System.out by a logger.(Îø÷8¨ÌÎ§1
-Y	java:S125ô"<This block of commented-out lines of code should be removed.(‰ÍÎÕ8¢¨ÌÎ§1
-D	java:S131û""Add a default case to this switch.(¥Û¢ñùÿÿÿÿ8¥¨ÌÎ§1
+java:S1172Ô"2Remove this unused method parameter "actionEvent".(ˆ÷‰àøÿÿÿÿ8áè÷À¬1
+Y	java:S125Õ"<This block of commented-out lines of code should be removed.(ôö’€8âè÷À¬1
+H	java:S106á"+Replace this use of System.out by a logger.(Îø÷8ãè÷À¬1
+Y	java:S125ô"<This block of commented-out lines of code should be removed.(‰ÍÎÕ8çè÷À¬1
+D	java:S131û""Add a default case to this switch.(¥Û¢ñùÿÿÿÿ8èè÷À¬1
 S
-java:S1068;"6Remove this unused "pantallaBienvenida" private field.(¢Ö˜­8ª¨ÌÎ§1
+java:S1068;"6Remove this unused "pantallaBienvenida" private field.(¢Ö˜­8ëè÷À¬1

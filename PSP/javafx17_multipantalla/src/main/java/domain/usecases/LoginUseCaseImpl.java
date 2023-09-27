@@ -1,5 +1,6 @@
 package domain.usecases;
 
+import common.Error3;
 import common.ErrorApp;
 import common.ResultMio;
 import dao.DaoLogin;
@@ -18,11 +19,25 @@ public class LoginUseCaseImpl implements LoginUseCase {
         this.daoLogin = daoLogin;
     }
 
+    private Either<ErrorApp, Object> validateUser(Usuario usuario) {
+        if (usuario.nombre().equals("error")) {
+            return Either.left(new Error3("error nombre"));
+        }
+        return Either.right(null);
+    }
 
+
+    private Either<ErrorApp, Object> validatePassword(Usuario usuario) {
+        if (usuario.password().equals("error")) {
+            return Either.left(new Error3("error password"));
+        }
+        return Either.right(null);
+    }
     @Override
     public Either<ErrorApp, ResultMio<Boolean>> doLogin(Usuario usuario) {
 
-        return daoLogin.doLogin(usuario);
-
+        return validateUser(usuario)
+                .flatMap(o -> validatePassword(usuario))
+                .flatMap(o -> daoLogin.doLogin(usuario));
     }
 }
