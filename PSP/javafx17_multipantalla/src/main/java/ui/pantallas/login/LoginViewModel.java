@@ -37,8 +37,10 @@ public class LoginViewModel {
                 })
                 .peekLeft(errorApp -> {
                     switch(errorApp){
-                        case Error2 e2 -> { var k=3;}
+
                         case Error3 error3 -> { var i = 2;
+                        }
+                        case Error2 error2 -> {
                         }
                     }
 

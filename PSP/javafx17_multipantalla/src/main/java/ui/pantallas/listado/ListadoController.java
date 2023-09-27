@@ -1,6 +1,9 @@
 package ui.pantallas.listado;
 
+import common.config.Configuracion;
+import dao.impl.DaoCromosImpl;
 import domain.modelo.Cromo;
+import domain.usecases.LoadCromosUseCase;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import io.github.palexdev.materialfx.controls.MFXTableColumn;
 import io.github.palexdev.materialfx.controls.MFXTableView;
@@ -49,6 +52,8 @@ public class ListadoController extends BasePantallaController {
     @Inject
     public ListadoController(ListadoViewModel viewModel) {
         this.viewModel = viewModel;
+
+
     }
 
     @FXML
