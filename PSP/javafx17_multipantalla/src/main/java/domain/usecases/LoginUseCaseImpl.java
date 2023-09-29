@@ -35,7 +35,6 @@ public class LoginUseCaseImpl implements LoginUseCase {
     }
     @Override
     public Either<ErrorApp, ResultMio<Boolean>> doLogin(Usuario usuario) {
-
         return validateUser(usuario)
                 .flatMap(o -> validatePassword(usuario))
                 .flatMap(o -> daoLogin.doLogin(usuario));

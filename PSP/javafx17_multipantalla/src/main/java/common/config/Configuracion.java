@@ -20,7 +20,8 @@ public class Configuracion {
 
         try {
             Properties p = new Properties();
-            p.load(getClass().getClassLoader().getResourceAsStream("config/config.properties"));
+            p.load(getClass().getClassLoader()
+                    .getResourceAsStream("config/config.properties"));
             this.pathDatos = p.getProperty("pathDatos");
 
         } catch (IOException e) {

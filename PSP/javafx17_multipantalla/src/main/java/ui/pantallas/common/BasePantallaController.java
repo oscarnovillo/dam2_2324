@@ -3,7 +3,7 @@ package ui.pantallas.common;
 import ui.pantallas.principal.PrincipalController;
 
 
-public class BasePantallaController {
+public abstract class BasePantallaController {
 
     private PrincipalController principalController;
 
@@ -15,8 +15,5 @@ public class BasePantallaController {
         this.principalController = principalController;
     }
 
-    public void principalCargado()
-    {
-
-    }
+    public abstract void principalCargado();
 }

@@ -22,11 +22,16 @@ class MainViewModel(
 
     fun addPersona(persona: Persona) {
 
+
+
+
         if (!addPersonaUseCase(persona)) {
             _uiState.value = MainState(
+                persona = _uiState.value.let{persona},
                 error = stringProvider.getString(R.string.name),
             )
-            _uiState.value = _uiState.value?.copy(error = Constantes.ERROR)
+            _uiState.value = _uiState
+                .value?.copy(error = Constantes.ERROR)
 
         }
     }

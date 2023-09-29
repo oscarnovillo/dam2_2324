@@ -1,11 +1,10 @@
 
 i
-java:S1192("LDefine a constant instead of duplicating this literal "descripcion" 4 times.(ÏŠÞ½8Õ¿®Í§1
+java:S1192*"LDefine a constant instead of duplicating this literal "descripcion" 4 times.(ÏŠÞ½8Õ¿®Í§1
 d
-java:S1192("GDefine a constant instead of duplicating this literal "marvel" 4 times.(ÏŠÞ½8Õ¿®Í§1
+java:S1192*"GDefine a constant instead of duplicating this literal "marvel" 4 times.(ÏŠÞ½8Õ¿®Í§1
 {
-java:S21425"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(ä ¹€8þ¿®Í§1
-E	java:S1085")Either remove or fill this block of code.(ä ¹€8þ¿®Í§1
-X	java:S125i"<This block of commented-out lines of code should be removed.(×Ó¾ç8†À®Í§1
+java:S21427"^Either re-interrupt this method or rethrow the "InterruptedException" that can be caught here.(ä ¹€8þ¿®Í§1
+X	java:S125m"<This block of commented-out lines of code should be removed.(×Ó¾ç8†À®Í§1
 N
-java:S1068"1Remove this unused "configuracion" private field.(Ÿ½•·8‡À®Í§1
+java:S1068"1Remove this unused "configuracion" private field.(Ÿ½•·8‡À®Í§1

@@ -23,22 +23,7 @@ public class LoginController extends BasePantallaController {
         this.loginViewModel = loginViewModel;
     }
 
-    public void initialize() {
 
-        loginViewModel.getState().addListener((observableValue, oldState, newState) -> {
-            if (newState.getError()!=null)
-            {
-               this.getPrincipalController().sacarAlertError(newState.getError());
-            }
-            if (newState.isLoginOK())
-            {
-                //cambiar de pantalla
-                this.getPrincipalController().onLoginHecho(new Usuario(txtUserName.getText(), txtPassword.getText()));
-            }
-
-
-        });
-    }
 
     @FXML
     private void doLogin() {
@@ -50,6 +35,20 @@ public class LoginController extends BasePantallaController {
     }
 
 
+    @Override
+    public void principalCargado() {
+        loginViewModel.getState().addListener((observableValue, oldState, newState) -> {
+            if (newState.getError()!=null)
+            {
+                this.getPrincipalController().sacarAlertError(newState.getError());
+            }
+            if (newState.isLoginOK())
+            {
+                //cambiar de pantalla
+                this.getPrincipalController().onLoginHecho(new Usuario(txtUserName.getText(), txtPassword.getText()));
+            }
 
 
+        });
+    }
 }

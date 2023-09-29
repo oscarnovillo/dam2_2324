@@ -8,7 +8,7 @@ import lombok.Data;
 import java.time.LocalDateTime;
 
 @Data
-public  abstract sealed class ErrorApp permits Error2,Error3{
+public  abstract sealed class ErrorApp permits Error2,Error3,Error4{
 
     private final String mensaje;
     private final LocalDateTime fecha;
