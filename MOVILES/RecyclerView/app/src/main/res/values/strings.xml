@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">RecyclerView</string>
+    <string name="place">%s kkk %s</string>
+    <string name="persona">persona</string>
+</resources>
