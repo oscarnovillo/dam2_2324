@@ -16,6 +16,7 @@ public class Servlet extends HttpServlet {
     private  ServiciosTest serviciosTest;
 
 
+    @Inject
     public Servlet(ServiciosTest serviciosTest) {
 
     }
