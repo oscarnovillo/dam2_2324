@@ -1,0 +1,9 @@
+
+a	java:S112'"FDefine and throw a dedicated exception instead of using a generic one.(Ü¦œU8ÕŸÃÏÃ0
+„
+java:S1488>"bImmediately return this expression instead of assigning it to the temporary variable "datasource".(âï®‰şÿÿÿÿ8ÖŸÃÏÃ0
+W
+java:S11172":Rename "config" which hides the field declared at line 25.(ª¹Ã8úŸÃÏÃ0
+W	java:S125F"<This block of commented-out lines of code should be removed.(Š«Ô08ˆ ÃÏÃ0
+X	java:S125L"<This block of commented-out lines of code should be removed.(ğ¬Ù¼8 ÃÏÃ0
+X	java:S125S"<This block of commented-out lines of code should be removed.(ˆ×à8 ÃÏÃ0

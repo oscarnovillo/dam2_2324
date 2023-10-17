@@ -1,0 +1,26 @@
+{
+	"info": {
+		"_postman_id": "1c09b688-a244-4625-9f04-5bf3f6344e1e",
+		"name": "test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3854333"
+	},
+	"item": [
+		{
+			"name": "www.as.com",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "www.as.com",
+					"host": [
+						"www",
+						"as",
+						"com"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
