@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.ViewModel
+
 import com.example.appnobasica.databinding.ActivityMainBinding
 import com.example.appnobasica.databinding.TucasaEslamiaBinding
 import com.example.appnobasica.domain.modelo.Persona
@@ -26,12 +28,16 @@ class MainActivity : AppCompatActivity() {
     }
 
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityMainBinding.inflate(layoutInflater).apply {
             setContentView(root)
         }
+
+
         eventos()
         observarViewModel()
     }
@@ -44,7 +50,7 @@ class MainActivity : AppCompatActivity() {
                 viewModel.errorMostrado()
             }
             if (state.error == null)
-                binding.editTextTextPersonName.setText(state.persona.nombre)
+                binding.editTextTextPersonName.setText(state.persona?.nombre)
         }
     }
 

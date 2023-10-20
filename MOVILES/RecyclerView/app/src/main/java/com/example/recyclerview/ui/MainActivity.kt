@@ -16,6 +16,7 @@ import com.example.recyclerview.data.EjemploRepository
 import com.example.recyclerview.databinding.ActivityMainBinding
 
 import com.example.recyclerview.domain.model.Persona
+import com.example.recyclerview.domain.model.usecases.GetPersonasUseCase
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import timber.log.Timber
 import java.io.IOException
@@ -28,7 +29,12 @@ class MainActivity : AppCompatActivity() {
     private var temp: Int = 0
 
     private lateinit var binding: ActivityMainBinding
-
+    private val viewModel: MainViewModel by viewModels {
+        MainViewModelFactory(
+            GetPersonasUseCase(
+                EjemploRepository(assets.open("file.json"))),
+        )
+    }
 
     private lateinit var editText : EditText
     private lateinit var imageview : ImageView
@@ -79,6 +85,7 @@ class MainActivity : AppCompatActivity() {
 
             imageview.load("http://i.annihil.us/u/prod/marvel/i/mg/4/60/52695285d6e7e.jpg"){
                 transformations(CircleCropTransformation())
+
             }
 
 //            val imageLoader = ImageLoader(this)

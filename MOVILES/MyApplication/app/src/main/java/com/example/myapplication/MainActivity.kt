@@ -19,6 +19,7 @@ class MainActivity : AppCompatActivity() {
         txt = findViewById(R.id.editTextText)
         txt.setBackgroundColor(getColor(R.color.rojito))
         txt.setText("hola")
+
         boton = findViewById(R.id.button)
         boton.setOnClickListener {
 

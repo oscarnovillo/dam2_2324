@@ -42,6 +42,7 @@ class EjemploRepository(file: InputStream? = null) {
 
 
     init {
+
         if (lista.size == 0)
         {
             val moshi = Moshi.Builder()
@@ -52,10 +53,14 @@ class EjemploRepository(file: InputStream? = null) {
                 MutableList::class.java,
                 Ejemplo::class.java
             )
-            val ejemplo = file?.bufferedReader()?.readText()?.let {
+            val ejemplo = file?.bufferedReader()?.readText()?.let {contenidoFichero ->
                 moshi.adapter<List<Ejemplo>>(listOfCardsType)
-                    .fromJson(it)
+                    .fromJson(contenidoFichero)
             }
+
+
+                lista.addAll(ejemplo!!)
+
 
             ejemplo?.let{ lista.addAll(it)}
         }

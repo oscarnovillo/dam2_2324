@@ -3,6 +3,6 @@ package com.example.appnobasica.ui.pantallaMain
 import com.example.appnobasica.domain.modelo.Persona
 
 data class MainState(
-    val persona: Persona = Persona(nombre=""),
+    val persona: Persona? = null,
     val error: String? = null
 )
