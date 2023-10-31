@@ -14,6 +14,8 @@ import java.io.IOException;
 @WebServlet(name = "Servlet", value = "/juan")
 public class MIPrimerServlet extends HttpServlet {
 
+
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Equipo p = new Equipo( "1", "Madrid", "Madrid", "Santiago Bernabeu");
