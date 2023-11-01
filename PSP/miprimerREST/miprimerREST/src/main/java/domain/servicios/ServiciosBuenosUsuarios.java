@@ -6,12 +6,12 @@ import jakarta.inject.Inject;
 
 import java.util.List;
 
-public class ServiciosErrores {
+public class ServiciosBuenosUsuarios {
 
     private DaoErrores dao;
 
     @Inject
-    public ServiciosErrores(DaoErrores dao) {
+    public ServiciosBuenosUsuarios(DaoErrores dao) {
         this.dao = dao;
     }
 

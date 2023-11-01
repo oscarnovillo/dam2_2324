@@ -6,7 +6,7 @@ import dao.modelo.Usuario;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
-import domain.servicios.ServiciosErrores;
+import domain.servicios.ServiciosBuenosUsuarios;
 import jakarta.ws.rs.core.Response;
 
 import java.util.List;
@@ -15,13 +15,13 @@ import java.util.stream.Collectors;
 @Path("/errores")
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
-public class RestErrores {
+public class RestBuenoUsuarios {
 
-    private ServiciosErrores su;
+    private ServiciosBuenosUsuarios su;
 
 
     @Inject
-    public RestErrores(ServiciosErrores su) {
+    public RestBuenoUsuarios(ServiciosBuenosUsuarios su) {
         this.su = su;
     }
 
@@ -42,7 +42,8 @@ public class RestErrores {
     public Response addUsuario(Usuario usuario) {
         DaoErrores.usuarios.add(usuario);
         usuario.setId("" + Math.random());
-        return Response.status(Response.Status.CREATED).entity(usuario).build();
+        return Response.status(Response.Status.CREATED)
+                .entity(usuario).build();
     }
 
     @PUT

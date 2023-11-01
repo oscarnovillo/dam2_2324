@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
-    <artifactId>miprimerServer</artifactId>
+    <artifactId>miprimerPayara</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
@@ -17,7 +17,6 @@
 
     <dependencies>
 
-
         <!-- https://mvnrepository.com/artifact/jakarta.platform/jakarta.jakartaee-web-api -->
         <dependency>
             <groupId>jakarta.platform</groupId>
@@ -25,28 +24,21 @@
             <version>10.0.0</version>
             <scope>provided</scope>
         </dependency>
-
-        <!-- FIN TOMCAT DEPENDENCIES -->
-        <dependency>
-            <groupId>org.primefaces</groupId>
-            <artifactId>primefaces</artifactId>
-            <version>12.0.0</version>
-            <classifier>jakarta</classifier>
-        </dependency>
-        <dependency>
-            <groupId>org.thymeleaf</groupId>
-            <artifactId>thymeleaf</artifactId>
-            <version>3.1.0.M1</version>
-        </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.24</version>
+            <version>1.18.28</version>
         </dependency>
         <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
             <version>2.10</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.thymeleaf</groupId>
+            <artifactId>thymeleaf</artifactId>
+            <version>3.1.0.M1</version>
         </dependency>
 
     </dependencies>

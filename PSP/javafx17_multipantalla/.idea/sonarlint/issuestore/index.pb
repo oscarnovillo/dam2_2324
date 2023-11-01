@@ -19,7 +19,17 @@ R
 0src/main/java/dao/retrofit/ProducesRetrofit.java,4\0\4070be6784772f662f3d578d59b9a40234f87106
 7
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
-O
-src/test/java/TestDaoLogin.java,c\d\cd4c41f401f41ce04f99ddf4cf1f1d9a4d272066
 W
 'src/test/java/ui/TestPantallaLogin.java,5\a\5a5c10a689019ff6bb163acfb4592a940acdb9ce
+`
+0src/main/java/dao/retrofit/llamadas/JokeApi.java,4\c\4ce010282cd4320940d304b67191bd7558feb472
+Y
+)src/main/java/dao/impl/DaoCromosImpl.java,4\3\43a8682e80b3dd632e3fe76af2649ff834be9297
+Y
+)src/main/java/dao/retrofit/rick/Info.java,e\a\eacb1f518bbda802f09316294a506b8f8f6ae7a4
+`
+0src/main/java/dao/retrofit/rick/ResultsItem.java,0\d\0d78b9fe48d50cdb13d4ff43e724f1b4e747c6ff
+i
+9src/main/java/ui/pantallas/listado/ListadoController.java,5\2\527c788db3eed07414173e76ce34ec647d22d6e2
+`
+0src/main/java/dao/retrofit/modelo/Character.java,f\a\fae71d61b7bd35154a6b5e2fd846f3d0a1e155e3

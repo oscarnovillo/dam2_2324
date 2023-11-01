@@ -16,15 +16,16 @@ class MainViewModel(
     private val getPersonas: GetPersonas,
 ) : ViewModel() {
 
-    private val _uiState = MutableLiveData<MainState>()
+    private var indice =0
+    private val _uiState = MutableLiveData(MainState())
     val uiState: LiveData<MainState> get() = _uiState
 
 
+    init {
+        _uiState.value = MainState(persona=this.getPersonas()[0])
+    }
+
     fun addPersona(persona: Persona) {
-
-
-
-
         if (!addPersonaUseCase(persona)) {
             _uiState.value = MainState(
                 persona = _uiState.value.let{persona},
@@ -32,7 +33,6 @@ class MainViewModel(
             )
             _uiState.value = _uiState
                 .value?.copy(error = Constantes.ERROR)
-
         }
     }
 

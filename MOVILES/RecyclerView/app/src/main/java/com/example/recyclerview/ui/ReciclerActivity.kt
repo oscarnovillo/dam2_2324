@@ -26,12 +26,12 @@ class ReciclerActivity : AppCompatActivity() {
         setContentView(R.layout.activity_recicler)
 
         intent.extras?.let {
-            val persona = it.getParcelable<Persona>(getString(R.string.persona))
-            Timber.i("Nombre: ${persona}")
-            Log.i("MITAG", "Nombre: ${persona}")
+//            val persona = it.getParcelable<Persona>(getString(R.string.persona))
+//            Timber.i("Nombre: ${persona}")
+//            Log.i("MITAG", "Nombre: ${persona}")
         }
 
-        val listaPersonas = EjemploRepository().getLista()
+        val listaPersonas = EjemploRepository(assets.open("data.json")).getLista()
         Toast.makeText(this , "el nombre es ${listaPersonas[0].name}", Toast.LENGTH_SHORT).show()
 
         val rvPersona = this.findViewById<RecyclerView>(R.id.rvPersonas)
