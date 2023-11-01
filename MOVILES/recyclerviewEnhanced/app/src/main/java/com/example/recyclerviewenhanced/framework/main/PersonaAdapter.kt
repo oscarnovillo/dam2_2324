@@ -70,8 +70,8 @@ class PersonaAdapter(
                     item.isSelected = true
                     binding.selected.isChecked = true
                     selectedItem.add(item)
-                    //notifyDataSetChanged()
-                    notifyItemChanged(adapterPosition)
+                    notifyDataSetChanged()
+                    //notifyItemChanged(adapterPosition)
                 }
                 true
             }

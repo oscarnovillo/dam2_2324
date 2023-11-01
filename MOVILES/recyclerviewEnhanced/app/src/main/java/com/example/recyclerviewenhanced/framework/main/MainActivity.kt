@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         personasAdapter = PersonaAdapter(this,
             object : PersonaAdapter.PersonaActions {
-                override fun onDelete(persona: Persona) = viewModel.deletePersona(persona)
+                override fun onDelete(persona: Persona) = viewModel.handleEvent(MainEvent.DeletePersona(persona))
 
                 override fun onStartSelectMode() {
                     startSupportActionMode(callback)?.let {
@@ -58,14 +58,10 @@ class MainActivity : AppCompatActivity() {
                 override fun itemHasClicked(persona: Persona) {
                     actionMode.title =
                         "${personasAdapter.getSelectedItems().size.toString()} selected"
-                    viewModel.seleccionaPersona(persona)
+                    viewModel.handleEvent(MainEvent.SeleccionaPersona(persona))
                 }
 
                 override fun isItemSelected(persona: Persona): Boolean = viewModel.isSelected(persona)
-
-
-
-
             })
         binding.rvPersonas.adapter = personasAdapter
 
@@ -73,21 +69,21 @@ class MainActivity : AppCompatActivity() {
         touchHelper.attachToRecyclerView(binding.rvPersonas)
 
         binding.button.setOnClickListener {
-            val cosas = listOf(Cosa("cosa1", 22))
-            println(personasAdapter.getSelectedItems().toString())
+//            val cosas = listOf(Cosa("cosa1", 22))
+//            println(personasAdapter.getSelectedItems().toString())
 //            viewModel.insertPersonaWithCosas(Persona(0, "nombre", LocalDate.now(), cosas))
-            viewModel.getPersonas()
+            viewModel.handleEvent(MainEvent.GetPersonas)
         }
 
-        viewModel.personas.observe(this, { personas ->
+        viewModel.uiState.observe(this) { state ->
+            if (state.personas.isNotEmpty())
+                personasAdapter.submitList(state.personas)
+            state.error?.let {
+                Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
+                viewModel.handleEvent(MainEvent.ErrorVisto)
+            }
 
-            personasAdapter.submitList(personas)
-        })
-        viewModel.error.observe(this, {
-
-            Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
-
-        })
+        }
 
         val context = this
         lifecycleScope.launch {
@@ -97,7 +93,7 @@ class MainActivity : AppCompatActivity() {
 
         }
 
-        viewModel.getPersonas();
+        //viewModel.handleEvent(MainEvent.GetPersonas)
         configAppBar();
 
     }
@@ -126,7 +122,7 @@ class MainActivity : AppCompatActivity() {
                         true
                     }
                     R.id.more -> {
-                        viewModel.deletePersona(personasAdapter.getSelectedItems())
+                        viewModel.handleEvent(MainEvent.DeletePersona(personasAdapter.getSelectedItems()[0]))
                         true
                     }
                     else -> false

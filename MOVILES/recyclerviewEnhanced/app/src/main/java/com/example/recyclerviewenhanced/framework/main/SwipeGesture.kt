@@ -43,7 +43,7 @@ abstract class SwipeGesture(context: Context) : ItemTouchHelper.SimpleCallback(0
             actionState,
             isCurrentlyActive
         )
-            .addSwipeLeftBackgroundColor(R.color.red)
+            .addSwipeLeftBackgroundColor(deleteColor)
             .addSwipeLeftActionIcon(R.drawable.ic_launcher_foreground)
             .create()
             .decorate()

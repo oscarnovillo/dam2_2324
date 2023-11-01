@@ -8,7 +8,6 @@ import androidx.annotation.RequiresApi
 
 object Utils {
 
-    @RequiresApi(Build.VERSION_CODES.M)
     fun hasInternetConnection(context: Context?): Boolean {
         if (context == null)
             return false

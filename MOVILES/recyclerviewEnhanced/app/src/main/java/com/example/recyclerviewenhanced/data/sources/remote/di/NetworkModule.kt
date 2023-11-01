@@ -1,4 +1,4 @@
-package com.maxi.dogapi.di
+package com.example.recyclerviewenhanced.data.sources.remote.di
 
 import com.example.recyclerviewenhanced.data.sources.remote.DogService
 import com.example.recyclerviewenhanced.data.sources.remote.ServiceInterceptor
@@ -8,10 +8,10 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.converter.moshi.MoshiConverterFactory
 import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
@@ -40,6 +40,11 @@ object NetworkModule {
     @Provides
     fun provideConverterFactory(): GsonConverterFactory =
          GsonConverterFactory.create()
+
+    @Singleton
+    @Provides
+    fun provideConverterMoshiFactory(): MoshiConverterFactory =
+        MoshiConverterFactory.create()
 
     @Singleton
     @Provides
