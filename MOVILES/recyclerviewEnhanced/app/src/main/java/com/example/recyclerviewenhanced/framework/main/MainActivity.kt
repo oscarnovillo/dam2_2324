@@ -61,7 +61,12 @@ class MainActivity : AppCompatActivity() {
                     viewModel.handleEvent(MainEvent.SeleccionaPersona(persona))
                 }
 
-                override fun isItemSelected(persona: Persona): Boolean = viewModel.isSelected(persona)
+                override fun isItemSelected(persona: Persona): Boolean {
+                    viewModel.handleEvent(MainEvent.isSelectedPersona(persona))
+                    return true
+                }
+
+
             })
         binding.rvPersonas.adapter = personasAdapter
 
@@ -151,8 +156,8 @@ class MainActivity : AppCompatActivity() {
 
             override fun onQueryTextChange(newText: String?): Boolean {
 
-                newText?.let {
-                    viewModel.getPersonas(it)
+                newText?.let {filtro ->
+                    viewModel.handleEvent(MainEvent.GetPersonaFiltradas(filtro))
                 }
 
                 return false

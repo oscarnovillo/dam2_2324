@@ -9,7 +9,8 @@ sealed class MainEvent {
     class SeleccionaPersona(val persona: Persona) : MainEvent()
     class InsertPersona(val persona: Persona) : MainEvent()
     class GetPersonaPorId(val id: Int) : MainEvent()
-    //class GetPersonaFiltradas(val filtro: String) : MainEvent()
+    class isSelectedPersona(val persona: Persona) : MainEvent()
+    class GetPersonaFiltradas(val filtro: String) : MainEvent()
     object GetPersonas : MainEvent()
     object ErrorVisto : MainEvent()
 }

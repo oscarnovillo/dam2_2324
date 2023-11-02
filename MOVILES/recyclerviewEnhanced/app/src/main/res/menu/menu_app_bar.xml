@@ -6,7 +6,7 @@
         android:icon="@drawable/ic_baseline_favorite_24"
         android:title="favortio"
         android:contentDescription="descripcion"
-        app:showAsAction="ifRoom" />
+        app:showAsAction="never" />
 
     <item
         android:id="@+id/search"

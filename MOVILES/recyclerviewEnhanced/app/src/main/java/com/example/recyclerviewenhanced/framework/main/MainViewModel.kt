@@ -15,7 +15,7 @@ import java.time.LocalDate
 import javax.inject.Inject
 
 @HiltViewModel
-class MainViewModel @Inject constructor(val dogRepository: DogRepository) : ViewModel() {
+class MainViewModel @Inject constructor(private val dogRepository: DogRepository) : ViewModel() {
 
 
     private val listaPersonas = mutableListOf<Persona>()
@@ -81,8 +81,13 @@ class MainViewModel @Inject constructor(val dogRepository: DogRepository) : View
             is MainEvent.GetPersonaPorId -> {
             }
 
-            is MainEvent.DeletePersona -> deletePersona(event.persona)
+            is MainEvent.DeletePersona -> {
+                deletePersona(event.persona)
+                getPersonas()
+            }
             is MainEvent.SeleccionaPersona -> seleccionaPersona(event.persona)
+            is MainEvent.GetPersonaFiltradas -> getPersonas(event.filtro)
+            is MainEvent.isSelectedPersona -> isSelected(event.persona)
         }
     }
 
@@ -115,7 +120,7 @@ class MainViewModel @Inject constructor(val dogRepository: DogRepository) : View
 
     }
 
-    fun getPersonas(filtro: String) {
+    private fun getPersonas(filtro: String) {
 
         viewModelScope.launch {
 
@@ -163,7 +168,7 @@ class MainViewModel @Inject constructor(val dogRepository: DogRepository) : View
 
     }
 
-    fun isSelected(persona: Persona): Boolean {
+    private fun isSelected(persona: Persona): Boolean {
         return selectedItem.contains(persona)
     }
 
