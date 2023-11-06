@@ -25,6 +25,8 @@ class MainActivity : AppCompatActivity() {
 
     private var primeraVez : Boolean = false
 
+    private var anteriorState: MainState? = null
+
     private lateinit var personasAdapter: PersonaAdapter
 
 
@@ -76,34 +78,38 @@ class MainActivity : AppCompatActivity() {
         }
 
         viewModel.uiState.observe(this) { state ->
-            if (state.personas.isNotEmpty())
+            if (state.personas != anteriorState?.personas
+                && state.personas.isNotEmpty())
                 personasAdapter.submitList(state.personas)
 
-
+            if (state.personasSeleccionadas != anteriorState?.personasSeleccionadas) {
                 personasAdapter.setSelectedItems(state.personasSeleccionadas)
                 actionMode?.title =
                     "${state.personasSeleccionadas.size} selected"
+            }
 
-            if (state.selectMode) {
-                personasAdapter.startSelectMode()
-                if (primeraVez){
-                    startSupportActionMode(callback)?.let {
-                        actionMode = it;
+            if (state.selectMode != anteriorState?.selectMode) {
+                if (state.selectMode) {
+                    personasAdapter.startSelectMode()
+                    if (primeraVez) {
+                        startSupportActionMode(callback)?.let {
+                            actionMode = it;
+                        }
+                        primeraVez = false
                     }
-                    primeraVez = false
-                }
 
-            } else {
-                personasAdapter.resetSelectMode()
-                primeraVez = true
-                actionMode?.finish()
+                } else {
+                    personasAdapter.resetSelectMode()
+                    primeraVez = true
+                    actionMode?.finish()
+                }
             }
             state.error?.let {
                 Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
                 viewModel.handleEvent(MainEvent.ErrorVisto)
             }
 
-
+            anteriorState = state
         }
 
         val context = this
