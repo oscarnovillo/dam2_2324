@@ -13,7 +13,6 @@ import com.example.recyclerviewenhanced.R
 import com.example.recyclerviewenhanced.databinding.ViewPersonaBinding
 import com.example.recyclerviewenhanced.domain.Persona
 import com.example.recyclerviewenhanced.framework.main.SwipeGesture
-import java.util.*
 
 
 class PersonaAdapter(
@@ -24,14 +23,12 @@ class PersonaAdapter(
 
     interface PersonaActions {
         fun onDelete(persona: Persona)
-        fun onStartSelectMode()
+        fun onStartSelectMode(persona:Persona)
         fun itemHasClicked(persona:Persona)
-        fun isItemSelected(persona:Persona) : Boolean
-
 
     }
 
-    private var selectedItem = mutableListOf<Persona>()
+    private var selectedPersonas = mutableSetOf<Persona>()
 
     fun resetSelectMode() {
         selectedMode = false
@@ -39,7 +36,9 @@ class PersonaAdapter(
         notifyDataSetChanged()
     }
 
-    fun getSelectedItems() = selectedItem.toList()
+    fun setSelectedItems(personasSeleccionadas: List<Persona>){
+        selectedPersonas.addAll(personasSeleccionadas)
+    }
 
     private var selectedMode: Boolean = false
 
@@ -66,10 +65,10 @@ class PersonaAdapter(
             itemView.setOnLongClickListener {
                 if (!selectedMode) {
                     selectedMode = true
-                    actions.onStartSelectMode()
+                    actions.onStartSelectMode(item)
                     item.isSelected = true
                     binding.selected.isChecked = true
-                    selectedItem.add(item)
+                    selectedPersonas.add(item)
                     notifyDataSetChanged()
                     //notifyItemChanged(adapterPosition)
                 }
@@ -84,11 +83,11 @@ class PersonaAdapter(
                             itemView.setBackgroundColor(Color.GREEN)
                             //binding.selected.isChecked = true
                             //notifyItemChanged(adapterPosition)
-                            selectedItem.add(item)
+                            selectedPersonas.add(item)
                         } else {
                             item.isSelected = false
                             itemView.setBackgroundColor(Color.WHITE)
-                            selectedItem.remove(item)
+                            selectedPersonas.remove(item)
                             //binding.selected.isChecked = false
                             //notifyItemChanged(adapterPosition)
 
@@ -106,7 +105,7 @@ class PersonaAdapter(
                     selected.visibility = View.GONE
                 }
 
-                if (actions.isItemSelected(item)) {
+                if (selectedPersonas.contains(item)) {
                     itemView.setBackgroundColor(Color.GREEN)
                     binding.selected.isChecked = true
                     //selected.visibility = View.VISIBLE
@@ -150,7 +149,7 @@ class PersonaAdapter(
             //if (!selectedMode) {
                 when (direction) {
                     ItemTouchHelper.LEFT -> {
-                        selectedItem.remove(currentList[viewHolder.adapterPosition])
+                        selectedPersonas.remove(currentList[viewHolder.adapterPosition])
                         actions.onDelete(currentList[viewHolder.adapterPosition])
                         if (selectedMode)
                             actions.itemHasClicked(currentList[viewHolder.adapterPosition])

@@ -28,7 +28,7 @@ class MainViewModel @Inject constructor(private val dogRepository: DogRepository
     private val _sharedFlow = MutableSharedFlow<String>()
     val sharedFlow = _sharedFlow.asSharedFlow()
 
-    private var selectedItem = mutableListOf<Persona>()
+    private var selectedPersonas = mutableListOf<Persona>()
 
 
     private val _uiState = MutableLiveData(MainState())
@@ -81,13 +81,19 @@ class MainViewModel @Inject constructor(private val dogRepository: DogRepository
             is MainEvent.GetPersonaPorId -> {
             }
 
-            is MainEvent.DeletePersona -> {
-                deletePersona(event.persona)
-                getPersonas()
+            is MainEvent.DeletePersonasSeleccionadas -> {
+                _uiState.value?.let {
+                    deletePersona(it.personasSeleccionadas)
+                    getPersonas()
+                }
             }
             is MainEvent.SeleccionaPersona -> seleccionaPersona(event.persona)
             is MainEvent.GetPersonaFiltradas -> getPersonas(event.filtro)
-            is MainEvent.isSelectedPersona -> isSelected(event.persona)
+            is MainEvent.DeletePersona -> {
+                deletePersona(listOf(event.persona))
+                getPersonas()
+
+            }
         }
     }
 
@@ -159,17 +165,18 @@ class MainViewModel @Inject constructor(private val dogRepository: DogRepository
     private fun seleccionaPersona(persona: Persona) {
 
         if (isSelected(persona)) {
-            selectedItem.remove(persona)
+            selectedPersonas.remove(persona)
 
         }
         else {
-            selectedItem.add(persona)
+            selectedPersonas.add(persona)
         }
+        _uiState.value = _uiState.value?.copy(personasSeleccionadas = selectedPersonas)
 
     }
 
     private fun isSelected(persona: Persona): Boolean {
-        return selectedItem.contains(persona)
+        return selectedPersonas.contains(persona)
     }
 
 

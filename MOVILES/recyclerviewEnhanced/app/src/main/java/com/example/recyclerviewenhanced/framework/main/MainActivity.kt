@@ -14,10 +14,8 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import com.example.hiltmenu.ui.main.PersonaAdapter
 import com.example.recyclerviewenhanced.R
 import com.example.recyclerviewenhanced.databinding.ActivityMainBinding
-import com.example.recyclerviewenhanced.domain.Cosa
 import com.example.recyclerviewenhanced.domain.Persona
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
@@ -47,24 +45,21 @@ class MainActivity : AppCompatActivity() {
             object : PersonaAdapter.PersonaActions {
                 override fun onDelete(persona: Persona) = viewModel.handleEvent(MainEvent.DeletePersona(persona))
 
-                override fun onStartSelectMode() {
+                override fun onStartSelectMode(persona: Persona) {
                     startSupportActionMode(callback)?.let {
                         actionMode = it;
-                        it.title = "1 selected"
+                        viewModel.handleEvent(MainEvent.SeleccionaPersona(persona))
+
 
                     }
                 }
 
                 override fun itemHasClicked(persona: Persona) {
-                    actionMode.title =
-                        "${personasAdapter.getSelectedItems().size.toString()} selected"
+
                     viewModel.handleEvent(MainEvent.SeleccionaPersona(persona))
                 }
 
-                override fun isItemSelected(persona: Persona): Boolean {
-                    viewModel.handleEvent(MainEvent.isSelectedPersona(persona))
-                    return true
-                }
+
 
 
             })
@@ -83,10 +78,18 @@ class MainActivity : AppCompatActivity() {
         viewModel.uiState.observe(this) { state ->
             if (state.personas.isNotEmpty())
                 personasAdapter.submitList(state.personas)
+
+            if (state.personasSeleccionadas.isNotEmpty())
+            {
+                personasAdapter.setSelectedItems(state.personasSeleccionadas)
+                actionMode.title =
+                    "${state.personasSeleccionadas.size.toString()} selected"
+            }
             state.error?.let {
                 Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
                 viewModel.handleEvent(MainEvent.ErrorVisto)
             }
+
 
         }
 
@@ -127,7 +130,7 @@ class MainActivity : AppCompatActivity() {
                         true
                     }
                     R.id.more -> {
-                        viewModel.handleEvent(MainEvent.DeletePersona(personasAdapter.getSelectedItems()[0]))
+                        viewModel.handleEvent(MainEvent.DeletePersonasSeleccionadas())
                         true
                     }
                     else -> false
