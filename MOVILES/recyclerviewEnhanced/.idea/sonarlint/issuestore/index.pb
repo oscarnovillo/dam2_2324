@@ -58,3 +58,9 @@ P
 Qapp/src/main/java/com/example/recyclerviewenhanced/framework/main/SwipeGesture.kt,9\6\96fe1dfb840a910db08d79f794581a474d3c486a
 u
 Eapp/src/main/java/com/example/recyclerviewenhanced/utils/Constants.kt,a\1\a1e1967d1a3d4af54c7838fa05bc671d76d6372e
+S
+#.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
+~
+Napp/src/main/java/com/example/recyclerviewenhanced/framework/main/MainEvent.kt,a\a\aadd661c4e1ab3beca588b5f57cedb73438ac066
+~
+Napp/src/main/java/com/example/recyclerviewenhanced/framework/main/MainState.kt,4\d\4d789e7fe67422a4e20beed7593df56e9c02d898

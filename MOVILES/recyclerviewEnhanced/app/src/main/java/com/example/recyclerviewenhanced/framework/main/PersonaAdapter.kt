@@ -30,13 +30,20 @@ class PersonaAdapter(
 
     private var selectedPersonas = mutableSetOf<Persona>()
 
+    fun startSelectMode() {
+        selectedMode = true
+        notifyDataSetChanged()
+    }
+
+
     fun resetSelectMode() {
         selectedMode = false
-
+        selectedPersonas.clear()
         notifyDataSetChanged()
     }
 
     fun setSelectedItems(personasSeleccionadas: List<Persona>){
+        selectedPersonas.clear()
         selectedPersonas.addAll(personasSeleccionadas)
     }
 
@@ -64,12 +71,12 @@ class PersonaAdapter(
 
             itemView.setOnLongClickListener {
                 if (!selectedMode) {
-                    selectedMode = true
+//                    selectedMode = true
                     actions.onStartSelectMode(item)
-                    item.isSelected = true
-                    binding.selected.isChecked = true
-                    selectedPersonas.add(item)
-                    notifyDataSetChanged()
+//                    item.isSelected = true
+//                    binding.selected.isChecked = true
+                    //selectedPersonas.add(item)
+//                    notifyDataSetChanged()
                     //notifyItemChanged(adapterPosition)
                 }
                 true

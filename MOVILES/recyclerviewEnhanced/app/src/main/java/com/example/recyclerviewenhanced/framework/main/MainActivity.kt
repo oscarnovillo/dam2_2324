@@ -23,6 +23,8 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
+    private var primeraVez : Boolean = false
+
     private lateinit var personasAdapter: PersonaAdapter
 
 
@@ -33,12 +35,14 @@ class MainActivity : AppCompatActivity() {
         configContextBar()
     }
 
-    private lateinit var actionMode: ActionMode
+    private var actionMode: ActionMode? = null
+
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        primeraVez = true
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         personasAdapter = PersonaAdapter(this,
@@ -46,12 +50,8 @@ class MainActivity : AppCompatActivity() {
                 override fun onDelete(persona: Persona) = viewModel.handleEvent(MainEvent.DeletePersona(persona))
 
                 override fun onStartSelectMode(persona: Persona) {
-                    startSupportActionMode(callback)?.let {
-                        actionMode = it;
-                        viewModel.handleEvent(MainEvent.SeleccionaPersona(persona))
-
-
-                    }
+                    viewModel.handleEvent(MainEvent.StartSelectMode)
+                    viewModel.handleEvent(MainEvent.SeleccionaPersona(persona))
                 }
 
                 override fun itemHasClicked(persona: Persona) {
@@ -79,11 +79,24 @@ class MainActivity : AppCompatActivity() {
             if (state.personas.isNotEmpty())
                 personasAdapter.submitList(state.personas)
 
-            if (state.personasSeleccionadas.isNotEmpty())
-            {
+
                 personasAdapter.setSelectedItems(state.personasSeleccionadas)
-                actionMode.title =
-                    "${state.personasSeleccionadas.size.toString()} selected"
+                actionMode?.title =
+                    "${state.personasSeleccionadas.size} selected"
+
+            if (state.selectMode) {
+                personasAdapter.startSelectMode()
+                if (primeraVez){
+                    startSupportActionMode(callback)?.let {
+                        actionMode = it;
+                    }
+                    primeraVez = false
+                }
+
+            } else {
+                personasAdapter.resetSelectMode()
+                primeraVez = true
+                actionMode?.finish()
             }
             state.error?.let {
                 Toast.makeText(this, it, Toast.LENGTH_SHORT).show()
@@ -138,7 +151,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onDestroyActionMode(mode: ActionMode?) {
-                personasAdapter.resetSelectMode()
+                viewModel.handleEvent(MainEvent.ResetSelectMode)
 
             }
 

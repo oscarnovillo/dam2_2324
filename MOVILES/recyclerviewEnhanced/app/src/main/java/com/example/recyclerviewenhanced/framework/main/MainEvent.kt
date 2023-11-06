@@ -14,4 +14,7 @@ sealed class MainEvent {
     class GetPersonaFiltradas(val filtro: String) : MainEvent()
     object GetPersonas : MainEvent()
     object ErrorVisto : MainEvent()
+
+    object StartSelectMode: MainEvent()
+    object ResetSelectMode: MainEvent()
 }

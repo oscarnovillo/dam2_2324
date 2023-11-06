@@ -84,17 +84,25 @@ class MainViewModel @Inject constructor(private val dogRepository: DogRepository
             is MainEvent.DeletePersonasSeleccionadas -> {
                 _uiState.value?.let {
                     deletePersona(it.personasSeleccionadas)
-                    getPersonas()
+                    resetSelectMode()
                 }
             }
             is MainEvent.SeleccionaPersona -> seleccionaPersona(event.persona)
             is MainEvent.GetPersonaFiltradas -> getPersonas(event.filtro)
             is MainEvent.DeletePersona -> {
-                deletePersona(listOf(event.persona))
-                getPersonas()
-
+                deletePersona(event.persona)
             }
+
+            MainEvent.ResetSelectMode -> resetSelectMode()
+
+            MainEvent.StartSelectMode -> _uiState.value = _uiState.value?.copy(selectMode = true)
         }
+    }
+
+    private fun resetSelectMode()
+    {
+        selectedPersonas.clear()
+        _uiState.value = _uiState.value?.copy(selectMode = false)
     }
 
     private fun getPersonas() {
@@ -139,25 +147,21 @@ class MainViewModel @Inject constructor(private val dogRepository: DogRepository
     }
 
 
-    private fun deletePersona(persona: List<Persona>) {
+    private fun deletePersona(personas: List<Persona>) {
 
         viewModelScope.launch {
-            _sharedFlow.emit("error")
-//            listaPersonas.removeAll(persona)
-//            _personas.value = listaPersonas.toList()
-//            _personas.value = getPersonas.invoke()
-
+//            _sharedFlow.emit("error")
+            listaPersonas.removeAll(personas)
+            selectedPersonas.removeAll(personas)
+            _uiState.value = _uiState.value?.copy(personasSeleccionadas = selectedPersonas.toList())
+            getPersonas()
         }
 
     }
 
     private fun deletePersona(persona: Persona) {
 
-        viewModelScope.launch {
-//            _sharedFlow.emit("error")
-            listaPersonas.remove(persona)
-            getPersonas()
-        }
+        deletePersona(listOf(persona))
 
     }
 
