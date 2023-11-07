@@ -102,7 +102,8 @@ class MainViewModel @Inject constructor(private val dogRepository: DogRepository
     private fun resetSelectMode()
     {
         selectedPersonas.clear()
-        _uiState.value = _uiState.value?.copy(selectMode = false)
+        _uiState.value = _uiState.value?.copy(selectMode = false, personasSeleccionadas = selectedPersonas)
+
     }
 
     private fun getPersonas() {
