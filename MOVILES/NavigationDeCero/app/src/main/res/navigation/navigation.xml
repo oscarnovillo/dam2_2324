@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/primerFragment">
+
+    <fragment
+        android:id="@+id/primerFragment"
+        android:name="com.example.navigationdecero.ui.pantallas.PrimerFragment"
+        android:label="@string/primero"
+        tools:layout="@layout/fragment_primer" >
+        <action
+            android:id="@+id/action_primerFragment_to_tercerFragment"
+            app:destination="@id/tercerFragment" />
+        <action
+            android:id="@+id/action_primerFragment_to_segundoFragment"
+            app:destination="@id/segundoFragment" />
+        <argument
+            android:name="mensaje"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="ShowAppBar"
+            android:defaultValue="false" />
+    </fragment>
+    <fragment
+        android:id="@+id/segundoFragment"
+        android:name="com.example.navigationdecero.ui.pantallas.SegundoFragment"
+        android:label="@string/segundo"
+        tools:layout="@layout/fragment_segundo" >
+        <action
+            android:id="@+id/meVoyDeSegundoATercero"
+            app:destination="@id/tercerFragment" />
+        <action
+            android:id="@+id/action_segundoFragment_to_primerFragment"
+            app:destination="@id/primerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/tercerFragment"
+        android:name="com.example.navigationdecero.ui.pantallas.TercerFragment"
+        android:label="@string/tercero"
+        tools:layout="@layout/fragment_tercer" >
+        <action
+            android:id="@+id/action_tercerFragment_to_primerFragment"
+            app:destination="@id/primerFragment" />
+        <argument
+            android:name="mensaje"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
+    <argument
+        android:name="ShowAppBar"
+        android:defaultValue="true" />
+</navigation>

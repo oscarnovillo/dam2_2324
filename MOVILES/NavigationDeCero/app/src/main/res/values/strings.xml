@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">NavigationDeCero</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="segundo">Segundo</string>
+    <string name="primero">primero</string>
+    <string name="tercero">tercero</string>
+</resources>
