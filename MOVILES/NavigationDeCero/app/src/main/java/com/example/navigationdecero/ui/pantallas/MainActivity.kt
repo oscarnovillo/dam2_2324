@@ -1,5 +1,6 @@
 package com.example.navigationdecero.ui.pantallas
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.Menu
@@ -103,6 +104,12 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.search -> {
                 // Handle search icon press
+                true
+            }
+            R.id.bottom -> {
+                Intent(this, MainActivityBottom::class.java).also {
+                    startActivity(it)
+                }
                 true
             }
             else -> false

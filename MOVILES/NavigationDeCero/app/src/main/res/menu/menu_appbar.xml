@@ -8,6 +8,12 @@
         android:title="SegundoFragment"
         android:contentDescription="descripcion"
         app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/bottom"
+        android:icon="@drawable/ic_launcher_background"
+        android:contentDescription="bottom"
+        app:showAsAction="ifRoom"
+        android:title="Bottom" />
 
     <item
         android:id="@+id/search"

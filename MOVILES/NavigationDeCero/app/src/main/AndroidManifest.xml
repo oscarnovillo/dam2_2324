@@ -13,6 +13,9 @@
         android:theme="@style/Theme.NavigationDeCero"
         tools:targetApi="31">
         <activity
+            android:name=".ui.pantallas.MainActivityBottom"
+            android:exported="false" />
+        <activity
             android:name=".ui.pantallas.MainActivity"
             android:exported="true">
             <intent-filter>
