@@ -11,7 +11,7 @@ import retrofit2.Response;
 
 import java.util.Objects;
 
-abstract class DaoGenerics {
+public abstract class DaoGenerics {
 
     public <T> Either<String, T> safeApicall(Call<T> call) {
         Either<String, T> resultado = null;

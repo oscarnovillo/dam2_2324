@@ -15,6 +15,7 @@ import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.Context;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
+import miprimerRest.jakarta.filtros.Secure;
 import org.modelmapper.ModelMapper;
 import domain.servicios.ServiciosUsuarios;
 
@@ -23,7 +24,7 @@ import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 
 @Path("/users")
-
+@Secure
 @Produces(MediaType.APPLICATION_JSON)
 @Consumes(MediaType.APPLICATION_JSON)
 public class RestUsuarios {
@@ -31,7 +32,8 @@ public class RestUsuarios {
     private ServiciosUsuarios su;
 
     private ModelMapper mapper;
-
+    @Context
+    private HttpServletRequest request;
 //    @Context
 //    private SecurityContext security;
 

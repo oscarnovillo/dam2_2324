@@ -16,7 +16,7 @@
 
     <style name="Title">
         <item name="android:textStyle">bold</item>
-        <item name="android:fontFamily">@font/vina_sans</item>
+        <item name="android:fontFamily">@font/noto_sans_glagolitic_regular</item>
         <item name="android:textSize">30sp</item>
         <item name="android:textColor">@color/design_default_color_secondary</item>
     </style>

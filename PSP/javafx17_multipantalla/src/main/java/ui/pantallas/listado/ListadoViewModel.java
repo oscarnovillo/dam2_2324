@@ -3,6 +3,7 @@ package ui.pantallas.listado;
 import domain.modelo.Cromo;
 import domain.usecases.LoadCromosUseCase;
 import io.reactivex.rxjava3.core.Scheduler;
+import io.reactivex.rxjava3.disposables.Disposable;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 import io.vavr.control.Either;
 import jakarta.inject.Inject;
@@ -68,6 +69,7 @@ public class ListadoViewModel {
                         ls = new ListadoState(either.get(), null,false);
                     _state.setValue(ls);
                 });
+
     }
 
 

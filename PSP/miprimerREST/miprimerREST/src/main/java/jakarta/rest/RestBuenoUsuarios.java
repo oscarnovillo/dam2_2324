@@ -54,6 +54,8 @@ public class RestBuenoUsuarios {
         return aCambiar;
     }
 
+
+
     @DELETE
     @Path("/{id}")
     public Response delUsuario(@PathParam("id") String id) {
@@ -63,7 +65,7 @@ public class RestBuenoUsuarios {
             return Response.status(Response.Status.NOT_FOUND).entity(null).build();
         else {
             DaoErrores.usuarios = users;
-            return Response.status(Response.Status.NO_CONTENT).build();
+            return Response.status(204,"mensaje para ines").build();
         }
     }
 

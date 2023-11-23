@@ -33,3 +33,9 @@ i
 9src/main/java/ui/pantallas/listado/ListadoController.java,5\2\527c788db3eed07414173e76ce34ec647d22d6e2
 `
 0src/main/java/dao/retrofit/modelo/Character.java,f\a\fae71d61b7bd35154a6b5e2fd846f3d0a1e155e3
+d
+4src/main/java/domain/usecases/LoadCromosUseCase.java,d\3\d3a4c81dd8e6d5b3ad8abfc3c7e1dece4fb7a9cf
+h
+8src/main/java/ui/pantallas/listado/ListadoViewModel.java,6\2\62d40df670d5a9f2819ac52c201af73ee8c04af1
+P
+ src/main/java/dao/DaoCromos.java,3\f\3f683ea459b983d3eb6782012406f74f245b4ee4

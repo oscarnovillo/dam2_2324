@@ -14,7 +14,7 @@ public class ServletHashes extends HttpServlet {
 
     private Pbkdf2PasswordHash passwordHash;
 
-        private SecurityContext securityContext;
+    private SecurityContext securityContext;
 
 
     @Inject

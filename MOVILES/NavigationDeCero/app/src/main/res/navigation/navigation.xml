@@ -23,6 +23,9 @@
         <argument
             android:name="ShowAppBar"
             android:defaultValue="false" />
+        <action
+            android:id="@+id/action_primerFragment_to_cuartoFragment"
+            app:destination="@id/cuartoFragment" />
     </fragment>
     <fragment
         android:id="@+id/segundoFragment"
@@ -52,4 +55,17 @@
     <argument
         android:name="ShowAppBar"
         android:defaultValue="true" />
+    <fragment
+        android:id="@+id/cuartoFragment"
+        android:name="com.example.navigationdecero.ui.pantallas.CuartoFragment"
+        android:label="fragment_cuarto"
+        tools:layout="@layout/fragment_cuarto" >
+        <action
+            android:id="@+id/action_cuartoFragment_to_tercerFragment"
+            app:destination="@id/tercerFragment" />
+        <argument
+            android:name="test"
+            app:argType="string"
+            android:defaultValue="default value" />
+    </fragment>
 </navigation>

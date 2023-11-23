@@ -4,17 +4,21 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.navigationdecero.databinding.FragmentPrimerBinding
+import dagger.hilt.android.AndroidEntryPoint
 
 
+@AndroidEntryPoint
 class PrimerFragment : Fragment() {
 
 
     private var _binding: FragmentPrimerBinding? = null
     private val binding get() = _binding!!
-
+    private val viewModel: PrimerFragmentViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,6 +38,11 @@ class PrimerFragment : Fragment() {
             }
             irTercero.setOnClickListener{
                 val action = PrimerFragmentDirections.actionPrimerFragmentToTercerFragment(null)
+                findNavController().navigate(action)
+
+            }
+            irCuarto.setOnClickListener{
+                val action = PrimerFragmentDirections.actionPrimerFragmentToCuartoFragment("desde primero")
                 findNavController().navigate(action)
 
             }

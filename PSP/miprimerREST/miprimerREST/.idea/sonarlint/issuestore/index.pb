@@ -1,6 +1,4 @@
 
-[
-+src/main/java/jakarta/rest/RestErrores.java,7\d\7d3ee1ade718853110d62bdfe077a5418c164bed
 Q
 !src/main/java/dao/DaoErrores.java,5\2\5242580ad2d1817e8a3352211bb950a40bfbc7d7
 p
@@ -9,8 +7,6 @@ h
 8src/main/java/jakarta/errores/CustomExceptionMapper.java,5\d\5db715fd1109d2e236096830a1ad4af35f544609
 h
 8src/main/java/domain/modelo/errores/CustomException.java,b\c\bcab2c2a1c1d9c0c0c0ce604d106f37929c2b972
-d
-4src/main/java/domain/servicios/ServiciosErrores.java,2\1\21a3e88f70d19af861c68edad522fecdae13604f
 Q
 !src/main/webapp/WEB-INF/beans.xml,8\3\83008b1a88ba03a2548bb5b9ad0768c6c307d36c
 W
@@ -21,3 +17,37 @@ L
 test.postman_collection.json,b\9\b9b26e6e4276a035f9cf1301025d857e67f6028c
 p
 @src/main/java/jakarta/errores/BaseDatosCaidaExceptionMapper.java,1\1\111eb54e948d78ad913f59bf3e1f39c3997bb761
+7
+pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
+N
+src/main/java/dao/Errores.java,6\0\60d8e993eead67a3a0a8184b9e8a7723c8207b68
+`
+0src/main/java/jakarta/rest/JAXRSApplication.java,4\1\418ec6364e498240ce1f0314881a7cd9fc30a7f7
+k
+;src/main/java/domain/servicios/ServiciosBuenosUsuarios.java,0\5\055cef69e6e539b8f0ae1e56ffc46c6dde59e80b
+[
++src/main/java/dao/modelo/UsuarioGetDTO.java,3\f\3fcf44d0024d5df60b34e2a9abb6bc5f294617b5
+[
++src/main/java/dao/modelo/UsuarioEntity.java,d\d\dd2e5949ee577da907c830e5c12cbc83b99f185b
+S
+#src/main/java/dao/DBConnection.java,f\1\f165cee95d90c2b7eb0614507df1f683deb219e8
+j
+:src/main/java/domain/modelo/errores/NotFoundException.java,2\0\20b8c4535a1fd2d626fbfc3a988b591b6ab49214
+\
+,src/main/java/jakarta/rest/RestUsuarios.java,4\e\4eecfec4041d6f629530e09b50e9a47027a366c1
+j
+:src/main/java/jakarta/errores/NotFoundExceptionMapper.java,b\9\b9dfae07575a2013c0435589619c2e1d22edb120
+f
+6src/main/java/jakarta/errores/OtraExceptionMapper.java,7\6\766c5e24db57c5ca5b32b068608dea090164026f
+W
+'src/main/java/config/Configuration.java,7\f\7f9a1455549e9958f1cfe6993a695569484b133b
+Q
+!src/main/java/dao/DaoUsuario.java,4\9\491ff314333424da71ae410582f59337863d4961
+X
+(src/main/java/config/ListenerConfig.java,f\3\f385d6ee3ae19d5e6b6218753a319d74dea8ac8f
+W
+'src/main/java/dao/DBConnectionPool.java,2\9\299b42bb1e6854997ec216a7ea7031195666e722
+U
+%src/main/java/dao/modelo/Usuario.java,9\7\97c4363f2e0b687a710a5b264fe736e2d7f47890
+a
+1src/main/java/jakarta/rest/RestBuenoUsuarios.java,1\d\1d98ea87c4250bc9409ce60a7788170804b983d1

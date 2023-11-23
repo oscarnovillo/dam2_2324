@@ -4,10 +4,12 @@ package dao;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import config.Configuration;
+import domain.modelo.errores.CustomException;
 import jakarta.annotation.PreDestroy;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Singleton;
+import jakarta.ws.rs.core.Response;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -93,6 +95,7 @@ public class DBConnectionPool {
             }
         } catch (SQLException ex) {
             Logger.getLogger(DBConnectionPool.class.getName()).log(Level.SEVERE, null, ex);
+            throw new CustomException("opo", Response.Status.HTTP_VERSION_NOT_SUPPORTED);
         }
     }
 

@@ -1,15 +1,11 @@
 package ui.pantallas.listado;
 
-import common.config.Configuracion;
-import dao.impl.DaoCromosImpl;
 import domain.modelo.Cromo;
-import domain.usecases.LoadCromosUseCase;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import io.github.palexdev.materialfx.controls.MFXTableColumn;
 import io.github.palexdev.materialfx.controls.MFXTableView;
 import io.github.palexdev.materialfx.controls.MFXTextField;
 import io.github.palexdev.materialfx.controls.cell.MFXTableRowCell;
-import io.reactivex.rxjava3.core.Completable;
 import io.reactivex.rxjava3.core.Single;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 import io.vavr.control.Either;
@@ -129,18 +125,20 @@ public class ListadoController extends BasePantallaController {
         CompletableFuture.supplyAsync(viewModel::llamadaRetrofitAsyncEnUi)
                 .exceptionally(throwable -> Either.left(throwable.getMessage()))
                 .thenAcceptAsync(result ->
-                    //Platform.runLater(() -> {
-                        {getPrincipalController().root.setCursor(Cursor.DEFAULT);
-                        result.peek(cromos -> {
-                            tabla.getItems().clear();
-                            tabla.getItems().addAll(cromos);
+                                //Platform.runLater(() -> {
+                        {
+                            getPrincipalController().root.setCursor(Cursor.DEFAULT);
+                            result.peek(cromos -> {
+                                tabla.getItems().clear();
+                                tabla.getItems().addAll(cromos);
 
 
-                        }).peekLeft(error -> {
-                            getPrincipalController().sacarAlertError(error);
-                        });}
-                    //})
-            );
+                            }).peekLeft(error -> {
+                                getPrincipalController().sacarAlertError(error);
+                            });
+                        }
+                        //})
+                );
 
 //        var task = new Task<Either<String, List<Cromo>>>() {
 //            @Override
@@ -221,8 +219,10 @@ public class ListadoController extends BasePantallaController {
                     tablaNormal.getItems().addAll(listadoStateNew.getCromos());
                 }
 
-
-                getPrincipalController().root.setCursor(Cursor.DEFAULT);
+                if (listadoStateNew.isCargando())
+                    getPrincipalController().root.setCursor(Cursor.WAIT);
+                else
+                    getPrincipalController().root.setCursor(Cursor.DEFAULT);
             });
 
         });

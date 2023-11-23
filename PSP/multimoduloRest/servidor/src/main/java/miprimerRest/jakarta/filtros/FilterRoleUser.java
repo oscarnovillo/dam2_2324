@@ -10,7 +10,7 @@ import jakarta.ws.rs.core.Context;
 
 import java.io.IOException;
 
-@WebFilter(filterName = "FilterRoleUser",urlPatterns = {"/ServletHashes"})
+@WebFilter(filterName = "FilterRoleUser",urlPatterns = {"/api/*"})
 public class FilterRoleUser implements Filter {
 
     private final SecurityContext securityContext;

@@ -31,10 +31,6 @@ I
 src/main/webapp/index.jsp,8\e\8e6d3b70c9f5b02570779b0441540d45eceb0ded
 Q
 !src/main/webapp/WEB-INF/beans.xml,8\3\83008b1a88ba03a2548bb5b9ad0768c6c307d36c
-S
-#src/main/webapp/WEB-INF/webTEST.xml,c\9\c901925b218ead3c487382a9df1742750886efba
-T
-$src/main/webapp/META-INF/context.xml,c\b\cbfb0d2e9b2b9fbf9d54374577c894a38643c6d0
 X
 (src/main/webapp/WEB-INF/faces-config.xml,9\2\921ab541b29cd2aba50bbba38a0af79890ebe16a
 P

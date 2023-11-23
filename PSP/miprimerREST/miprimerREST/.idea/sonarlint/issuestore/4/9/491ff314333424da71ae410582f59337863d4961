@@ -1,4 +1,12 @@
 
-X	java:S125V"<This block of commented-out lines of code should be removed.(Ú°à¬8³œÃÏÃ0
+]	java:S125F"<This block of commented-out lines of code should be removed.(£óóÁıÿÿÿÿ8Øíƒ£¹1
+X	java:S125X"<This block of commented-out lines of code should be removed.(Ú°à¬8³œÃÏÃ0
 I
-java:S1874b",Remove this use of "save"; it is deprecated.(–Â8µœÃÏÃ0
+java:S1874d",Remove this use of "save"; it is deprecated.(–Â8µœÃÏÃ0
+r
+java:S1128	"PRemove this unused import 'org.springframework.jdbc.core.BeanPropertyRowMapper'.(ß©Å´ÿÿÿÿÿ8—Íá½1
+i
+java:S1128
+"GRemove this unused import 'org.springframework.jdbc.core.JdbcTemplate'.(å ê‹ÿÿÿÿÿ8™Íá½1
+M
+java:S1068""0Remove this unused "dbConnection" private field.(’‹íó8óíƒ£¹1
