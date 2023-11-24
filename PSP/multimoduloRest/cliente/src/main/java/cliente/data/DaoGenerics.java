@@ -1,5 +1,6 @@
 package cliente.data;
 
+import cliente.domain.errores.ErrorApp;
 import com.google.gson.Gson;
 import domain.errores.ApiError;
 import io.reactivex.rxjava3.core.Single;
@@ -43,22 +44,26 @@ abstract class DaoGenerics {
     }
 
 
-    public <T> Single<Either<String, T>> safeSingleApicall(Single<T> call) {
-        return call.map(t -> Either.right(t).mapLeft(Object::toString))
+    public <T> Single<Either<ErrorApp, T>> safeSingleApicall(Single<T> call) {
+        return call.map(t ->
+                    Either.right(t).mapLeft(o -> (ErrorApp)o)
+                )
                 .subscribeOn(Schedulers.io())
                 .onErrorReturn(throwable -> {
-                    Either<String, T> error = Either.left("Error de comunicacion");
+                    Either<ErrorApp, T> error = Either.left(new ErrorApp("Error de comunicacion"));
 
                     if (throwable instanceof HttpException) {
                         int code = ((HttpException) throwable).code();
-                        if (Objects.equals(((HttpException) throwable).response().errorBody().contentType(), MediaType.get("application/json"))) {
-                            ApiError api = gson.fromJson(((HttpException) throwable).response().errorBody().charStream(), ApiError.class);
-                            error = Either.left(code + api.getMessage());
+                        if (((HttpException) throwable).response().errorBody()!= null) {
+                            if (Objects.equals(((HttpException) throwable).response().errorBody().contentType(), MediaType.get("application/json"))) {
+                                ApiError api = gson.fromJson(((HttpException) throwable).response().errorBody().charStream(), ApiError.class);
+                                error = Either.left(new ErrorApp(code + api.getMessage()));
 
 
-                            //error = Either.right(T);
-                        } else {
-                            error = Either.left(((HttpException) throwable).response().message());
+                                //error = Either.right(T);
+                            } else {
+                                error = Either.left(new ErrorApp(((HttpException) throwable).response().message()));
+                            }
                         }
                     }
                     return error;
@@ -67,11 +72,11 @@ abstract class DaoGenerics {
 
     }
 
-    public Single<Either<String, String>> safeSingleVoidApicall(Single<Response<Void>> call) {
+    public Single<Either<ErrorApp, String>> safeSingleVoidApicall(Single<Response<Void>> call) {
         return call.map(response -> {
-                    var retorno = Either.right("OK").mapLeft(Object::toString);
+                    Either<ErrorApp,String> retorno = Either.right("OK");
                     if (!response.isSuccessful()) {
-                        retorno = Either.left(response.message());
+                        retorno = Either.left(new ErrorApp(response.message()));
                     }
                     return retorno;
                 })

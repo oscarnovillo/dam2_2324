@@ -1,5 +1,6 @@
 package cliente.data;
 
+import cliente.domain.errores.ErrorApp;
 import com.google.gson.Gson;
 import domain.modelo.Usuario;
 import io.reactivex.rxjava3.core.Single;
@@ -24,7 +25,7 @@ public class DaoEstupido extends DaoGenerics{
     }
 
 
-    public Single<Either<String, List<Usuario>>> getUsuario(){
+    public Single<Either<ErrorApp, List<Usuario>>> getUsuario(){
 
 
         return safeSingleApicall(estupidoAPI.getUsers())
@@ -32,21 +33,21 @@ public class DaoEstupido extends DaoGenerics{
                 .subscribeOn(Schedulers.io());
     }
 
-    public Single<Either<String, String>> getLogin(String headerBasic ){
+    public Single<Either<ErrorApp, String>> getLogin(String headerBasic ){
         return safeSingleVoidApicall(estupidoAPI.getLogin( headerBasic))
                 //.map(either -> either.map(alumno -> alumno.setNombre("mapeado")))
                 .subscribeOn(Schedulers.io());
     }
 
 
-    public Single<Either<String,String>> getJwt(){
+    public Single<Either<ErrorApp,String>> getJwt(){
         return safeSingleApicall(estupidoAPI.getJWT())
                 //.map(either -> either.map(alumno -> alumno.setNombre("mapeado")))
                 .subscribeOn(Schedulers.io());
 
     }
 
-    public Single<Either<String,String>> getVerify(){
+    public Single<Either<ErrorApp,String>> getVerify(){
         return safeSingleApicall(estupidoAPI.getVerify())
                 //.map(either -> either.map(alumno -> alumno.setNombre("mapeado")))
                 .subscribeOn(Schedulers.io());
