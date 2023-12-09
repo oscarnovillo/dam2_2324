@@ -10,8 +10,9 @@ import androidx.navigation.fragment.navArgs
 import com.example.navigationdecero.R
 import com.example.navigationdecero.databinding.FragmentCuartoBinding
 import com.example.navigationdecero.databinding.FragmentPrimerBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class CuartoFragment : Fragment() {
 
 

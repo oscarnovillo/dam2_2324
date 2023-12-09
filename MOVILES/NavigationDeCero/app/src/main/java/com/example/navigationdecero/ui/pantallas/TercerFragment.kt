@@ -10,8 +10,9 @@ import androidx.navigation.fragment.navArgs
 import com.example.navigationdecero.R
 import com.example.navigationdecero.databinding.FragmentPrimerBinding
 import com.example.navigationdecero.databinding.FragmentTercerBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class TercerFragment : Fragment() {
 
 

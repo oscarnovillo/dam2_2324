@@ -32,6 +32,7 @@ public class ProducesRetrofit {
     public OkHttpClient getOK(Configuracion config)
     {
         return new OkHttpClient.Builder()
+
                 .connectionPool(new okhttp3.ConnectionPool(1, 1, java.util.concurrent.TimeUnit.SECONDS))
                 //.protocols(java.util.Arrays.asList(Protocol.HTTP_2,Protocol.H2_PRIOR_KNOWLEDGE))
                 .addInterceptor(chain -> {

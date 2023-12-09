@@ -12,8 +12,9 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.onNavDestinationSelected
 import com.example.navigationdecero.R
 import com.example.navigationdecero.databinding.FragmentSegundoBinding
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class SegundoFragment : Fragment(),MenuProvider {
 
     private var _binding : FragmentSegundoBinding? = null

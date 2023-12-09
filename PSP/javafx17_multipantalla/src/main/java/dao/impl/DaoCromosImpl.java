@@ -26,7 +26,6 @@ import java.util.Objects;
 public class DaoCromosImpl extends DaoGenerics implements DaoCromos {
 
     private final Configuracion configuracion;
-
     private final JokeApi jokeApi;
 
 
@@ -79,6 +78,8 @@ public class DaoCromosImpl extends DaoGenerics implements DaoCromos {
             }
 
         } catch (IOException e) {
+            log.debug("he pasado por aqui");
+            log.error(e.getMessage(), e);
             respuesta = Either.left(e.getMessage());
         }
 

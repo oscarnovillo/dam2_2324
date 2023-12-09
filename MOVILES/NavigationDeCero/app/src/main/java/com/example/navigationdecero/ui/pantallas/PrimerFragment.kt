@@ -8,7 +8,9 @@ import androidx.activity.viewModels
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.navigationdecero.databinding.FragmentPrimerBinding
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -16,6 +18,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class PrimerFragment : Fragment() {
 
 
+    private lateinit var adapter: MiAdapter
     private var _binding: FragmentPrimerBinding? = null
     private val binding get() = _binding!!
     private val viewModel: PrimerFragmentViewModel by viewModels()
@@ -32,6 +35,21 @@ class PrimerFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         with(binding) {
+
+            adapter = MiAdapter(object : MiAdapter.MiActions {
+
+
+                override fun itemHasClicked(cadena: String) {
+                    Snackbar.make(requireView(), cadena, Snackbar.LENGTH_SHORT).show()
+                }
+            })
+            recyclerView.adapter = adapter
+            recyclerView.layoutManager = LinearLayoutManager(requireContext())
+
+            viewModel.uiState.observe(viewLifecycleOwner) {
+                adapter.submitList(it.cadenas)
+            }
+
             irSegundo.setOnClickListener {
                 val action = PrimerFragmentDirections.actionPrimerFragmentToSegundoFragment()
                 findNavController().navigate(action)

@@ -14,8 +14,9 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.*
 import com.example.navigationdecero.R
 import com.example.navigationdecero.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 import timber.log.Timber
-
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
