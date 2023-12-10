@@ -15,7 +15,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.flows.R
 import com.example.flows.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.invoke
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 
 @AndroidEntryPoint
@@ -57,8 +60,10 @@ class MainActivity : AppCompatActivity() {
         }
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
-                viewModel.uiError.collect {
-                    Toast.makeText(this@MainActivity, it, Toast.LENGTH_SHORT).show()
+                withContext(Dispatchers.Main.immediate ) {
+                    viewModel.uiError.collect {
+                        Toast.makeText(this@MainActivity, it, Toast.LENGTH_SHORT).show()
+                    }
                 }
             }
         }

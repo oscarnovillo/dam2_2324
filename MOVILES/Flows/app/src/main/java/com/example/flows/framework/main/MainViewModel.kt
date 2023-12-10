@@ -36,6 +36,7 @@ class MainViewModel @Inject constructor(
             MainContract.Event.PedirDatos -> {
                 pedirDatos()
             }
+
             MainContract.Event.MensajeMostrado -> {
                 _uiState.update { it.copy(error = null) }
             }
@@ -60,6 +61,7 @@ class MainViewModel @Inject constructor(
                                 }
                                 //_uiError.send(result.message ?: "Error")
                             }
+
                             is NetworkResult.Loading -> _uiState.update { it.copy(isLoading = true) }
                             is NetworkResult.Success -> _uiState.update {
                                 it.copy(
@@ -69,13 +71,21 @@ class MainViewModel @Inject constructor(
 
                         }
                     }
-            }
-            else {
+            } else {
                 _uiState.update {
                     it.copy(
                         error = "no hay internet cargando de cache.",
                         isLoading = false
                     )
+                }
+                when (val result = movieRepository.fetchTrendingMoviesCached()) {
+                    is NetworkResult.Error -> TODO()
+                    is NetworkResult.Loading -> TODO()
+                    is NetworkResult.Success -> _uiState.update {
+                        it.copy(
+                            movies = result.data ?: emptyList(), isLoading = false
+                        )
+                    }
                 }
             }
             //                  if (!Utils.hasInternetConnection(appContext))

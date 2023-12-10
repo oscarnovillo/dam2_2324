@@ -1,6 +1,3 @@
 
-Zkotlin:S66190";Remove this useless elvis operation ?:, it always succeeds.(¶ï’º8º£ÑÅ1
-tkotlin:S6558%"URemove this it parameter declaration or give this lambda parameter a meaningful name.(¥ÊÖ8¼£ÑÅ1
-9kotlin:S1128"Remove this unused import.(šÂë›8Á£ÑÅ1
->kotlin:S1128"Remove this unused import.(Ãéˆøøÿÿÿÿ8Á£ÑÅ1
->kotlin:S1128"Remove this unused import.(²š¢¢ûÿÿÿÿ8Á£ÑÅ1
+tkotlin:S6558'"URemove this it parameter declaration or give this lambda parameter a meaningful name.(¥ÊÖ8¼£ÑÅ1
+9kotlin:S1128"Remove this unused import.(šÂë›8Á£ÑÅ1

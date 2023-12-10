@@ -10,6 +10,8 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import com.example.flows.data.local.AppDatabase
 import com.example.flows.data.local.MovieDao
 import dagger.hilt.components.SingletonComponent
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
 import javax.inject.Singleton
 
 @InstallIn(SingletonComponent::class)
@@ -26,6 +28,10 @@ object DatabaseModule {
         ).fallbackToDestructiveMigration()
             .build()
     }
+
+    @Singleton
+    @Provides
+    fun provideIODispatcher(): CoroutineDispatcher = Dispatchers.IO
 
     @Provides
     fun provideMovieDao(appDatabase: AppDatabase): MovieDao {
