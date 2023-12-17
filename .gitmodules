@@ -1,0 +1,3 @@
+[submodule "MOVILES/Token-Authentication"]
+	path = MOVILES/Token-Authentication
+	url = https://github.com/MrNtlu/Token-Authentication.git
