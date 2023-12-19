@@ -30,6 +30,7 @@ public class Configuration {
     void cargar(InputStream file) {
 
         try {
+            String ruta = System.getenv().get("RUTA");
             Yaml yaml = new Yaml();
 
             Iterable<Object> it = null;

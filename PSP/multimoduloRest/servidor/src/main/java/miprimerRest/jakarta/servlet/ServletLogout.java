@@ -9,19 +9,18 @@ import jakarta.servlet.annotation.*;
 import java.io.IOException;
 
 @WebServlet(name = "ServletLogout", value = "/ServletLogout")
-@ServletSecurity(
-        @HttpConstraint(transportGuarantee = ServletSecurity.TransportGuarantee.NONE)
-)
+
 public class ServletLogout extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         MandarMail mandarMail = new MandarMail();
         try {
-            mandarMail.generateAndSendEmail("oscar.novillo@gmail.com", "Hola", "Hola");
+            mandarMail.generateAndSendEmail("oscar.novillo@gmail.com", "<html><a href=\"www.marca.com\">Hola</a></html>", "Hola");
         } catch (MessagingException e) {
             throw new RuntimeException(e);
         }
-        request.logout();
+        //request.logout();
+        response.getWriter().println("Logout");
         //request.getSession().removeAttribute("USERLOGIN");
         response.setStatus(HttpServletResponse.SC_NO_CONTENT);
 

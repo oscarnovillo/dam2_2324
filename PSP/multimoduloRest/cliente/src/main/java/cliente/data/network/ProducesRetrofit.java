@@ -53,6 +53,7 @@ public class ProducesRetrofit {
                 .callTimeout(Duration.of(10, ChronoUnit.MINUTES))
                 .connectTimeout(Duration.of(10, ChronoUnit.MINUTES))
                 //.addInterceptor(new AuthorizationInterceptor(cache))
+
                 .connectionPool(new ConnectionPool(1, 1, TimeUnit.SECONDS))
                 // necesario para la sesion
                 .cookieJar(new JavaNetCookieJar(cookieManager))
