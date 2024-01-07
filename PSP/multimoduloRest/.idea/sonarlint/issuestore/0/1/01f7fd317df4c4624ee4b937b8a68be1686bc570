@@ -1,0 +1,14 @@
+
+a
+java:S1192-"FDefine a constant instead of duplicating this literal "admin" 4 times.(Ö´ÏÌùÿÿÿÿ
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¢—Áşøÿÿÿÿ
+V	java:S1252"<This block of commented-out lines of code should be removed.(”…½«ûÿÿÿÿ
+d
+java:S1128"IRemove this unused import 'jakarta.enterprise.context.ApplicationScoped'.(±ÇŸëøÿÿÿÿ
+J
+java:S1128"5Remove this unused import 'jakarta.inject.Singleton'.(Úá³{
+y
+java:S1128
+"^Remove this unused import 'jakarta.security.enterprise.credential.UsernamePasswordCredential'.(øç³¦üÿÿÿÿ
+K
+java:S1068"5Remove this unused "serviciosUsuarios" private field.(‚œ¦²

@@ -1,8 +1,19 @@
 package cliente.asimetrico;
 
 import com.google.common.io.Files;
+import org.bouncycastle.asn1.x500.X500Name;
+import org.bouncycastle.asn1.x509.BasicConstraints;
+import org.bouncycastle.asn1.x509.KeyUsage;
+import org.bouncycastle.asn1.x509.SubjectPublicKeyInfo;
+import org.bouncycastle.asn1.x509.X509Extension;
+import org.bouncycastle.cert.CertIOException;
+import org.bouncycastle.cert.X509CertificateHolder;
+import org.bouncycastle.cert.X509v3CertificateBuilder;
+import org.bouncycastle.cert.jcajce.JcaX509CertificateConverter;
 import org.bouncycastle.jce.X509Principal;
 import org.bouncycastle.jce.provider.BouncyCastleProvider;
+import org.bouncycastle.operator.OperatorCreationException;
+import org.bouncycastle.operator.jcajce.JcaContentSignerBuilder;
 import org.bouncycastle.x509.X509V3CertificateGenerator;
 
 import javax.security.auth.x500.X500Principal;
@@ -11,6 +22,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.math.BigInteger;
 import java.security.*;
+import java.security.cert.Certificate;
 import java.security.cert.CertificateException;
 import java.security.cert.CertificateFactory;
 import java.security.cert.X509Certificate;
@@ -20,7 +32,9 @@ import java.security.spec.X509EncodedKeySpec;
 import java.time.LocalDate;
 import java.time.ZoneOffset;
 import java.time.temporal.ChronoUnit;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class CertBouncy {
 
@@ -53,6 +67,74 @@ public class CertBouncy {
 
 
     }
+    protected PrivateKey signingKey;
+    protected java.security.cert.Certificate signingCertificate;
+    protected List<Certificate> certificateChain;
+    protected String serialNumberOrKeyId;
+    protected boolean closedSystemSignatureDevice;
+    public void intialise() {
+        try {//from  www.  ja  v a2s  .c  o  m
+            //create random demonstration ECC keys
+            final KeyPairGenerator kpg = KeyPairGenerator.getInstance("EC");
+            kpg.initialize(256); //256 bit ECDSA key
+
+            //create a key pair for the demo Certificate Authority
+            final KeyPair caKeyPair = kpg.generateKeyPair();
+
+            //create a key pair for the signature certificate, which is going to be used to sign the receipts
+            final KeyPair signingKeyPair = kpg.generateKeyPair();
+
+            //get references to private keys for the CA and the signing key
+            final PrivateKey caKey = caKeyPair.getPrivate();
+            signingKey = signingKeyPair.getPrivate();
+
+            //create CA certificate and add it to the certificate chain
+            //NOTE: DO NEVER EVER USE IN A REAL CASHBOX, THIS IS JUST FOR DEMONSTRATION PURPOSES
+            //NOTE: these certificates have random values, just for the demonstration purposes here
+            //However, for testing purposes the most important feature is the EC256 Signing Key, since this is required
+            //by the RK Suite
+            final X509v3CertificateBuilder caBuilder = new X509v3CertificateBuilder(new X500Name("CN=RegKassa ZDA"),
+                    BigInteger.valueOf(new SecureRandom().nextLong()), new Date(System.currentTimeMillis() - 10000),
+                    new Date(System.currentTimeMillis() + 24L * 3600 * 1000), new X500Name("CN=RegKassa CA"),
+                    SubjectPublicKeyInfo.getInstance(caKeyPair.getPublic().getEncoded()));
+            caBuilder.addExtension(X509Extension.basicConstraints, true, new BasicConstraints(false));
+            caBuilder.addExtension(X509Extension.keyUsage, true, new KeyUsage(KeyUsage.digitalSignature));
+            final X509CertificateHolder caHolder = caBuilder
+                    .build(new JcaContentSignerBuilder("SHA256withECDSA").setProvider("BC").build(caKey));
+            final X509Certificate caCertificate = new JcaX509CertificateConverter().setProvider("BC")
+                    .getCertificate(caHolder);
+            certificateChain = new ArrayList<Certificate>();
+            certificateChain.add(caCertificate);
+
+            //create signing cert
+            final long serialNumberCertificate = new SecureRandom().nextLong();
+            if (!closedSystemSignatureDevice) {
+                serialNumberOrKeyId = Long.toHexString(serialNumberCertificate);
+            }
+
+            final X509v3CertificateBuilder certBuilder = new X509v3CertificateBuilder(
+                    new X500Name("CN=RegKassa CA"), BigInteger.valueOf(Math.abs(serialNumberCertificate)),
+                    new Date(System.currentTimeMillis() - 10000),
+                    new Date(System.currentTimeMillis() + 24L * 3600 * 1000),
+                    new X500Name("CN=Signing certificate"),
+                    SubjectPublicKeyInfo.getInstance(signingKeyPair.getPublic().getEncoded()));
+            certBuilder.addExtension(X509Extension.basicConstraints, true, new BasicConstraints(false));
+            certBuilder.addExtension(X509Extension.keyUsage, true, new KeyUsage(KeyUsage.digitalSignature));
+            final X509CertificateHolder certHolder = certBuilder
+                    .build(new JcaContentSignerBuilder("SHA256withECDSA").setProvider("BC").build(caKey));
+            signingCertificate = new JcaX509CertificateConverter().setProvider("BC").getCertificate(certHolder);
+
+        } catch (final NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        } catch (final OperatorCreationException e) {
+            e.printStackTrace();
+        } catch (final CertIOException e) {
+            e.printStackTrace();
+        } catch (final CertificateException e) {
+            e.printStackTrace();
+        }
+    }
+
 
     public X509Certificate generateSelfSignedX509Certificate() throws CertificateException, InvalidKeyException, IllegalStateException,
             NoSuchProviderException, NoSuchAlgorithmException, SignatureException {
@@ -64,6 +146,7 @@ public class CertBouncy {
 
         // build a certificate generator
         X509V3CertificateGenerator certGen = new X509V3CertificateGenerator();
+
         X500Principal dnName = new X500Principal("cn=example");
         X500Principal dnSubject = new X500Principal("cn=example");
 

@@ -1,0 +1,8 @@
+
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Þ¸Äâüÿÿÿÿ
+—
+java:S1186-"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(‹¨¯¿
+D
+java:S1948".Make "passwordHash" transient or serializable.(¼‡ëé
+L
+java:S1948"1Make "securityContext" transient or serializable.(ÉÆ²Ðùÿÿÿÿ
