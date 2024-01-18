@@ -39,6 +39,7 @@ public class ServletVerifyJWT extends HttpServlet {
 
 
        response.getWriter().println(jws.getBody().get("user"));
+       response.getWriter().println(jws.getBody().get("group"));
     }
 
     @Override

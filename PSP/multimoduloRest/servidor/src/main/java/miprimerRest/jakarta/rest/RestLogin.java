@@ -30,6 +30,7 @@ public class RestLogin {
     private SecurityContext securityContext;
 
     @GET
+    @Produces(MediaType.TEXT_HTML)
     public Response getLogin() {
         try {
             request.authenticate(response);

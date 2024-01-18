@@ -17,11 +17,12 @@ import java.security.MessageDigest;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.Date;
+import java.util.Set;
 
 @WebServlet(name = "ServletJWT", value = "/JWT")
-@ServletSecurity(
-        @HttpConstraint(rolesAllowed = {"admin"})
-)
+//@ServletSecurity(
+//        @HttpConstraint(rolesAllowed = {"admin"})
+//)
 public class ServletJWT extends HttpServlet {
     @Override
     @SneakyThrows
@@ -40,15 +41,15 @@ public class ServletJWT extends HttpServlet {
         SecretKey keyConfig = Keys.hmacShaKeyFor(key2.getEncoded());
 
         String jws = Jwts.builder()
-                .setSubject("parael servidor")
-                .setIssuer("YO")
+                .setSubject("oscar")
+                .setIssuer("self")
                 .setExpiration(Date
                         .from(LocalDateTime.now().plusSeconds(60).atZone(ZoneId.systemDefault())
                                 .toInstant()))
                 .claim("user", "juan")
-                .claim("group", "admins")
+                .claim("group", Set.of("admin", "user"))
                 .claim("jj","jajaj")
-                .signWith(keyConfig).compact();
+                .signWith(key).compact();
 
         response.getWriter().println(jws);
     }

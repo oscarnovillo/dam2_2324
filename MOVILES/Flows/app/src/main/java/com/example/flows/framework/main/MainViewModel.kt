@@ -49,7 +49,17 @@ class MainViewModel @Inject constructor(
         viewModelScope.launch {
             if (Utils.hasInternetConnection(context = appContext)) {
                 movieRepository.fetchTrendingMovies()
-                    .catch(action = { cause -> _uiError.send(cause.message ?: "") })
+                    .catch(action = { cause ->
+                        _uiState.update {
+                            it.copy(
+                                error = cause.message,
+                                isLoading = false
+                            )
+                        }
+                        _uiError.send(cause.message ?: "") }
+
+
+                    )
                     .collect { result ->
                         when (result) {
                             is NetworkResult.Error -> {

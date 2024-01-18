@@ -18,7 +18,8 @@ public class ServletHashes extends HttpServlet {
 
 
     @Inject
-    public ServletHashes(Pbkdf2PasswordHash passwordHash,  SecurityContext securityContext) {
+    public ServletHashes(Pbkdf2PasswordHash passwordHash,
+                         SecurityContext securityContext) {
         this.passwordHash = passwordHash;
         this.securityContext = securityContext;
     }
@@ -30,6 +31,8 @@ public class ServletHashes extends HttpServlet {
 
 
         response.getWriter().println(securityContext.getCallerPrincipal());
+
+        securityContext.isCallerInRole("ADMIN");
 
         String password = passwordHash.generate("1234".toCharArray());
         response.getWriter().println(password);

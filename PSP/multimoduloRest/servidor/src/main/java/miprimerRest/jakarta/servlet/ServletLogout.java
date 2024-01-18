@@ -5,6 +5,7 @@ import jakarta.mail.MessagingException;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
+import miprimerRest.jakarta.common.Utils;
 
 import java.io.IOException;
 
@@ -17,7 +18,8 @@ public class ServletLogout extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         MandarMail mandarMail = new MandarMail();
         try {
-            mandarMail.generateAndSendEmail("oscar.novillo@gmail.com", "Hola", "Hola");
+            String codigo = Utils.randomBytes();
+            mandarMail.generateAndSendEmail("oscar.novillo@gmail.com", "<html><body><a href=\"http://localhost:8080/miprimerREST-1.0-SNAPSHOT/activacion?act="+codigo+"\">Hola</a></body></html>", "Hola");
         } catch (MessagingException e) {
             throw new RuntimeException(e);
         }

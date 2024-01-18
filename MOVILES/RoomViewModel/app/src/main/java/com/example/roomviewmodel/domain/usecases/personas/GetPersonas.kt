@@ -5,5 +5,7 @@ import com.example.roomviewmodel.data.modelo.toPersona
 
 class GetPersonas(val personasRepository: PersonaRepository) {
 
-     suspend fun invoke() = personasRepository.getPersonas()
+     suspend fun invoke() =
+          personasRepository.getPersonas()
+
 }
