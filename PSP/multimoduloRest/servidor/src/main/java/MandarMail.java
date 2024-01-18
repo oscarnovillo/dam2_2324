@@ -71,7 +71,7 @@ public class MandarMail {
         // if you have 2FA enabled then provide App Specific Password
         transport.connect("smtp.gmail.com",
                 "alumnosdamquevedo@gmail.com",
-                "ayuaklckgxbbooph");
+                "uyhqfbbfmszvuykt");
 
         transport.sendMessage(generateMailMessage, generateMailMessage.getAllRecipients());
         transport.close();

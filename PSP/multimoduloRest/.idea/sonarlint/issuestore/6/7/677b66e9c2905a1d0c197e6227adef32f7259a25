@@ -1,0 +1,7 @@
+
+T
+java:S1854!"8Remove this useless assignment to local variable "ruta".(šªŠl8—ù§ÒÅ1
+T
+java:S1117!"8Rename "ruta" which hides the field declared at line 25.(šªŠl8šù§ÒÅ1
+E
+java:S1481!")Remove this unused "ruta" local variable.(šªŠl8›ù§ÒÅ1

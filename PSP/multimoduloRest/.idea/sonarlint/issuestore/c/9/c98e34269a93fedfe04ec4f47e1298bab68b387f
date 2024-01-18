@@ -1,0 +1,8 @@
+
+e
+java:S1192."JDefine a constant instead of duplicating this literal "USERLOGIN" 5 times.(€´«Üúÿÿÿÿ
+t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¢—Áþøÿÿÿÿ
+]
+java:S6813"BRemove this field injection and use constructor injection instead.(Áº–Žüÿÿÿÿ
+V	java:S125&"<This block of commented-out lines of code should be removed.(ôäµ±þÿÿÿÿ
+C	java:S1087")Either remove or fill this block of code.(¨¾¶§þÿÿÿÿ

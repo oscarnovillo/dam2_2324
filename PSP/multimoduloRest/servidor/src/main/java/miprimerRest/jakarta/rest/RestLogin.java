@@ -46,6 +46,13 @@ public class RestLogin {
     }
 
     @GET
+    @Path("/activation")
+    @Produces(MediaType.TEXT_HTML)
+    public Response getActivation(@QueryParam("user") String user, @QueryParam ("password") String password) {
+        return Response.ok("<html><body><h1>Activado</h1></body></html>").build();
+    }
+
+    @GET
     @Path("/login")
     public Response getLoginGet(@QueryParam("user") String user, @QueryParam ("password") String password) {
             request.getSession().setAttribute("LOGIN", null);

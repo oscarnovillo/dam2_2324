@@ -1,0 +1,10 @@
+
+g	java:S112("FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8Ó­Ñ¤Æ1
+g	java:S112*"FDefine and throw a dedicated exception instead of using a generic one.(Ò‚Òéüÿÿÿÿ8Ó­Ñ¤Æ1
+h
+java:S1192$"FDefine a constant instead of duplicating this literal "admin" 3 times.(¶¯ëÁøÿÿÿÿ8Ô­Ñ¤Æ1
+h
+java:S1192%"FDefine a constant instead of duplicating this literal "LOGIN" 3 times.(­¼•àýÿÿÿÿ8Ô­Ñ¤Æ1
+v	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‹ºÂ°8Õ­Ñ¤Æ1
+a
+java:S2147)"DCombine this catch with the one at line 39, which has the same body.(À–„Å8å­Ñ¤Æ1
