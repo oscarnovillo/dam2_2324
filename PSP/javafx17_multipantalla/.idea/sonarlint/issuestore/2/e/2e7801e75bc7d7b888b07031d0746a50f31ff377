@@ -1,10 +1,4 @@
 
-d
-java:S6813"BRemove this field injection and use constructor injection instead.(Áº–Žüÿÿÿÿ8øÞÏ½¾1
 ]	java:S125"<This block of commented-out lines of code should be removed.(¾âÏÂýÿÿÿÿ8Èßý­1
 X	java:S125"<This block of commented-out lines of code should be removed.(Ý“Úê8Éßý­1
 X	java:S125"<This block of commented-out lines of code should be removed.(”ü©8ìßý­1
-N
-java:S1128"1Remove this unused import 'java.util.Properties'.(¬µŽ²8óßý­1
-W
-java:S1128"5Remove this unused import 'java.util.ResourceBundle'.(ýÆ£¯øÿÿÿÿ8óßý­1

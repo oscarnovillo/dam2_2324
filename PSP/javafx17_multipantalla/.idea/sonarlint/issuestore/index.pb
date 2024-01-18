@@ -57,3 +57,5 @@ h
 8src/main/java/ui/pantallas/listado/ListadoViewModel.java,6\2\62d40df670d5a9f2819ac52c201af73ee8c04af1
 P
  src/main/java/dao/DaoCromos.java,3\f\3f683ea459b983d3eb6782012406f74f245b4ee4
+m
+=src/main/java/ui/pantallas/common/BasePantallaController.java,c\c\cc1ae912583ea46a90bdbcb27df07083ec460f34
