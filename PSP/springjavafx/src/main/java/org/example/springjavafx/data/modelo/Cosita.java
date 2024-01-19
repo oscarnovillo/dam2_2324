@@ -1,18 +1,16 @@
 package org.example.springjavafx.data.modelo;
 
 import jakarta.persistence.*;
-import lombok.Getter;
 import lombok.Setter;
+import lombok.Getter;
 
-import java.util.List;
 import java.util.UUID;
 
 @Entity
 @Getter
 @Setter
-@Table(name = "cosas")
-public class Cosa {
-
+@Table(name = "cositas")
+public class Cosita {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     @Column(name = "id", nullable = false)
@@ -22,10 +20,7 @@ public class Cosa {
     private String nombre;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
-    private User user;
+    @JoinColumn(name = "cosa_id")
+    private Cosa cosa;
 
-    @OneToMany(
-    mappedBy = "cosa")
-    private List<Cosita> cositas;
 }

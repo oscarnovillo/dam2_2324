@@ -178,8 +178,8 @@ public class Cert {
             //esta password se debería hashear
             char[] password = "abc".toCharArray();
             ks.load(null, null);
-            ks.setCertificateEntry("publica", cert);
-            ks.setKeyEntry("privada", pk, password, new Certificate[]{cert});
+            ks.setCertificateEntry("oscar", cert);
+            ks.setKeyEntry("oscar", pk, password, new Certificate[]{cert});
             ks.setKeyEntry("privada2", pk, password, new Certificate[]{cert});
             FileOutputStream fos = new FileOutputStream("keystore.pfx");
             ks.store(fos, password);

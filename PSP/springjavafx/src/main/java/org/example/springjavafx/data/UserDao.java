@@ -3,6 +3,7 @@ package org.example.springjavafx.data;
 import org.springframework.jdbc.core.simple.JdbcClient;
 import org.springframework.stereotype.Repository;
 
+
 @Repository
 public class UserDao {
 

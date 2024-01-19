@@ -6,7 +6,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import org.example.springjavafx.ui.pantallas.principal.PrincipalController;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
 
@@ -15,9 +14,12 @@ import java.io.IOException;
 @Component
 public class MainFX implements ApplicationListener<DIJavafx.StageReadyEvent> {
 
-    @Autowired
-    FXMLLoader fxmlLoader;
 
+    private final FXMLLoader fxmlLoader;
+
+    public MainFX(FXMLLoader fxmlLoader) {
+        this.fxmlLoader = fxmlLoader;
+    }
 
 
     @Override
