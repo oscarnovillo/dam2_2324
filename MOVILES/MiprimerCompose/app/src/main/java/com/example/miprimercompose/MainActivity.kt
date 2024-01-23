@@ -119,7 +119,8 @@ fun ContenidoPantalla(
                 var textoViewModel = viewModel?.text?.collectAsState()
 
                 if (textoViewModel?.value == "sal")
-                    CajaTextoMia(texto = textoViewModel.value)
+                    CajaTextoMia(texto = textoViewModel.value,
+                            onClick =   { it -> viewModel?.changeText(it) })
 
                 TextField(value = textoViewModel?.value ?: "", onValueChange = {
                     Log.i("MIERDECILLA", it)
@@ -188,6 +189,7 @@ fun ContenidoPantalla(
 @Composable
 fun CajaTextoMia(
     texto : String,
+    onClick : (String) -> Unit
     
 )
 {
@@ -197,7 +199,10 @@ fun CajaTextoMia(
             contentDescription = null,
             tint = MaterialTheme.colorScheme.secondary,
         )
-        Text(text = texto)
+        Text(
+            modifier = Modifier.height(100.dp)
+                .clickable {  onClick("kk") },
+            text = texto)
     }
 }
 
