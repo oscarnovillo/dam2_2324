@@ -72,13 +72,26 @@ fun Pantalla(
     viewModel: MainViewModel = hiltViewModel(),
     )
 {
-    ContenidoPantalla(viewModel)
+
+    ContenidoPantalla(
+        viewModel.text.collectAsState().value,
+        { viewModel.changeText(it) },
+    { viewModel.click() } ) {
+        Text(text = "jjojo")
+
+    }
 }
 
 
 @Composable
 fun ContenidoPantalla(
-    viewModel: MainViewModel? = null,
+    textoViewModel : String,
+    onChangeText : (String) -> Unit,
+    onClickBoton: () -> Unit,
+    content : @Composable () -> Unit,
+
+
+
 
 ){
     MiPrimerComposeTheme {
@@ -116,19 +129,18 @@ fun ContenidoPantalla(
                 )
                 Spacer(modifier = Modifier.height(8.dp))
                 var texto by remember { mutableStateOf("") }
-                var textoViewModel = viewModel?.text?.collectAsState()
 
-                if (textoViewModel?.value == "sal")
-                    CajaTextoMia(texto = textoViewModel.value,
-                            onClick =   { it -> viewModel?.changeText(it) })
+                if (textoViewModel == "sal")
+                    CajaTextoMia(texto = textoViewModel,
+                            onClick =   { it -> onChangeText(it) })
 
-                TextField(value = textoViewModel?.value ?: "", onValueChange = {
+                TextField(value = textoViewModel ?: "", onValueChange = {
                     Log.i("MIERDECILLA", it)
-                   viewModel?.changeText(it)
+                   onChangeText(it)
                 })
 
                 val context = LocalContext.current
-
+                content()
                 AsyncImage(
                     // cargar imagen con ImageRequest
                     model = ImageRequest.Builder(LocalContext.current)
@@ -200,8 +212,9 @@ fun CajaTextoMia(
             tint = MaterialTheme.colorScheme.secondary,
         )
         Text(
-            modifier = Modifier.height(100.dp)
-                .clickable {  onClick("kk") },
+            modifier = Modifier
+                .height(100.dp)
+                .clickable { onClick("kk") },
             text = texto)
     }
 }
@@ -214,9 +227,36 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
     )
 }
 
+
 @Preview(showBackground = true,
-    )
+)
 @Composable
-fun GreetingPreview() {
-    ContenidoPantalla()
+fun GreetingPreview2() {
+    ContenidoPantalla("pollito",{},{},{})
+}
+
+@Preview(showBackground = true,
+
+)
+@Composable
+fun GreetingPreview5() {
+    ContenidoPantalla("pollito",{},{},{})
+}
+@Preview(showBackground = true,
+)
+@Composable
+fun GreetingPreview6() {
+    ContenidoPantalla("pollito",{},{},{})
+}
+@Preview(showBackground = true,
+)
+@Composable
+fun GreetingPreview3() {
+    ContenidoPantalla("pollito",{},{},{})
+}
+@Preview(showBackground = true,
+)
+@Composable
+fun GreetingPreview4() {
+    ContenidoPantalla("pollito",{},{},{})
 }

@@ -27,4 +27,9 @@ import javax.inject.Inject
             _text.value = texto
         }
 
+        fun click()
+        {
+
+        }
+
     }
