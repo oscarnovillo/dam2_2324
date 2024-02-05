@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    HOLA MUNDO EN TEMPLATE
+
+    <p th:text="${name}"></p>
+
+    <table class="table table-striped table-bordered">
+        <thead class="table-dark">
+        <tr>
+            <th>user id</th>
+            <th>user name</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="alumno: ${alumnos}">
+            <td th:text="${alumno.id}"></td>
+            <td th:text="${alumno.name}"></td>
+
+        </tr>
+        </tbody>
+    </table>
+
+</body>
+</html>
