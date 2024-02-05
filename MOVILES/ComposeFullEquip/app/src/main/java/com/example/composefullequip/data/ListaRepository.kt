@@ -9,7 +9,7 @@ class ListaRepository @Inject constructor(){
 
     companion object{
         val data = mutableListOf<Persona>(
-            Persona("nombre 1","apellido 1", 20),
+            Persona(nombre = "nombre 1",apellido = "apellido 1", edad = 20),
             Persona("nombre 2","apellido 2", 21),
             Persona("nombre 3","apellido 3", 22),
             Persona("nombre 4","apellido 4", 23),
@@ -28,8 +28,8 @@ class ListaRepository @Inject constructor(){
     fun getPersonas() : List<Persona> = data.toList()
 
     fun shufflePersonas() : List<Persona>  {
-        val persona =  data.removeAt(5)
-        data.add(persona)
+//        val persona =  data.removeAt(5)
+//        data.add(persona)
 
         return data.shuffled().toList()
     }

@@ -12,7 +12,9 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.Button
 import androidx.compose.material3.Card
+import androidx.compose.material3.FabPosition
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHost
@@ -32,7 +34,7 @@ import com.example.composefullequip.domain.modelo.Persona
 import java.util.UUID
 
 
-@OptIn(ExperimentalFoundationApi::class)
+
 @Composable
 fun PantallaLista(
     viewModel: PantallaListaViewModel = hiltViewModel(),
@@ -45,18 +47,46 @@ fun PantallaLista(
     LaunchedEffect(Unit) {
         viewModel.handleEvent(PantallaListaEvent.GetPersonas)
     }
+
+    PantallaListaInterna(
+        state = state.value,
+        onViewDetalle = onViewDetalle,
+        bottomNavigationBar = bottomNavigationBar,
+    )
+
+
+
+
+
+}
+
+@OptIn(ExperimentalFoundationApi::class)
+@Composable
+fun PantallaListaInterna(
+    state: PantallaListaState,
+    onViewDetalle: (UUID) -> Unit,
+    bottomNavigationBar : @Composable () -> Unit = {},
+
+) {
+
     val snackbarHostState = remember { SnackbarHostState() }
 
 
 
     Scaffold (
         snackbarHost = { SnackbarHost(snackbarHostState) },
-        bottomBar = bottomNavigationBar
+        bottomBar = bottomNavigationBar,
+        floatingActionButton = {
+            Button(onClick = { /*TODO*/ }) {
+                Text("+")
+            }
+        },
+        floatingActionButtonPosition = FabPosition.Center
     ) { innerPadding ->
-        LaunchedEffect(state.value.error) {
-            state.value.error?.let {
+        LaunchedEffect(state.error) {
+            state.error?.let {
                 snackbarHostState.showSnackbar(
-                    message = state.value.error.toString(),
+                    message = state.error.toString(),
                     duration = SnackbarDuration.Short,
                 )
             }
@@ -69,7 +99,8 @@ fun PantallaLista(
                 .background(Color.Gray)
         ) {
 
-            items(items = state.value.personas, key = { persona -> persona.id }) { persona ->
+            items(items = state.personas, key = { persona -> persona.id }) {
+                    persona ->
                 PersonaItem(persona = persona,
                     onViewDetalle = onViewDetalle,
                     modifier = Modifier.animateItemPlacement(
@@ -81,9 +112,8 @@ fun PantallaLista(
     }
 
 
-
-
 }
+
 
 @Composable
 fun PersonaItem(persona: Persona,
