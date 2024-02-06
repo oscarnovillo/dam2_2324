@@ -45,7 +45,8 @@ public class AuthController {
     @GetMapping("/loginToken")
     public String loginToken(@RequestBody AuthRequest requestAuth, HttpServletRequest request) {
         Authentication auth =
-                authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(requestAuth.username(),requestAuth.password()));
+                authenticationManager.authenticate(
+                        new UsernamePasswordAuthenticationToken(requestAuth.username(),requestAuth.password()));
 
         SecurityContextHolder.getContext().setAuthentication(auth);
 

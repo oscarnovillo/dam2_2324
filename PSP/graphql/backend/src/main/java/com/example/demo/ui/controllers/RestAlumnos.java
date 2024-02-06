@@ -38,6 +38,7 @@ public class RestAlumnos {
     }
 
     @PostMapping("/api/alumnos")
+    @RolesAllowed("ADMIN")
     @ResponseStatus(code = HttpStatus.CREATED)
     public Alumno indexPost(@Valid @RequestBody Alumno alumno) {
         alumnoServicios.insertAlumno(alumno);

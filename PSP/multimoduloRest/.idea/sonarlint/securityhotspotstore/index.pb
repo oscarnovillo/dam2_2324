@@ -135,3 +135,11 @@ c
 ,servidor/src/main/java/dao/DBConnection.java,9\5\95b44bab5f9a03b3d024993de2095ca6234afac5
 b
 2cliente/src/main/java/cliente/asimetrico/Cert.java,b\a\baa22815865908e63e31eda81b21ff19ca7076da
+m
+=cliente/src/main/java/cliente/asimetrico/AlmacenarClaves.java,3\1\31e15f0f33e4105f857f8c4051757557f8fdf695
+q
+Aservidor/src/main/java/miprimerRest/jakarta/filtros/RoleUser.java,a\b\ab3c7ec8784a701d0be7ac16761acd91ba9d159d
+r
+Bservidor/src/main/java/miprimerRest/jakarta/common/Constantes.java,c\7\c748c049de0417727e7f431193a0fd0bb1c8f6a4
+w
+Gservidor/src/main/java/miprimerRest/jakarta/filtros/FilterRoleUser.java,8\1\813d4c2ec6b4790bf8ae36f79b432465805f9830

@@ -33,6 +33,7 @@ public class CustomUserDetailsService implements UserDetailsService {
                 .roles(
                         user.getRoles().stream()
                                 .map(RolesEntity::getRol).collect(Collectors.joining(",")))
+
                 .build();
 
     }
