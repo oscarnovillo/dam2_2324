@@ -7,5 +7,7 @@ import org.springframework.boot.runApplication
 class FrontendApplication
 
 fun main(args: Array<String>) {
-    runApplication<FrontendApplication>(*args)
+
+    Application.launch(DiJavaFX::class.java, args)
+
 }

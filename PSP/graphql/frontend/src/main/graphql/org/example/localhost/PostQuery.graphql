@@ -1,0 +1,6 @@
+query PostQuery {
+
+    allPosts {
+        id
+    }
+}

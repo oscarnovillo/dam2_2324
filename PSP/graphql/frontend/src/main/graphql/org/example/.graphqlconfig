@@ -1,0 +1,22 @@
+{
+  "name": "Localhost GraphQL Schema",
+  "schemaPath": "schema.graphql",
+  "extensions": {
+    "endpoints": {
+      "Default GraphQL Endpoint": {
+        "url": "https://rickandmortyapi.com/graphql",
+        "headers": {
+          "user-agent": "JS GraphQL"
+        },
+        "introspect": false
+      },
+      "Localhost GraphQL Endpoint": {
+          "url": "http://localhost:8080/graphql",
+          "headers": {
+          "user-agent": "JS GraphQL"
+          },
+          "introspect": true
+      }
+    }
+  }
+}
