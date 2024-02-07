@@ -49,7 +49,7 @@ public class Pantalla1 {
         u.getCosas().add(c);
 
         userRepository.save(u);
-        cosaRepository.save(c);
+        //cosaRepository.save(c);
     }
 
     public void descrifrar(ActionEvent actionEvent) {
@@ -61,7 +61,7 @@ public class Pantalla1 {
         alert.showAndWait();
     }
 
-    public void crearCertificados(ActionEvent actionEvent) {
+    public void crearCertificados(ActionEvent actionEvent) throws NoSuchAlgorithmException {
 
         List<User> users = userRepository.findAll();
         users.getFirst().setCosas(cosaRepository.findByUserId(users.getFirst().getId()));
@@ -69,11 +69,11 @@ public class Pantalla1 {
         users.getFirst().getCosas().forEach(cosa -> System.out.println(cosa.getNombre()));
 
         // generar clave publica y privada
-        KeyPairGenerator generadorRSA = KeyPairGenerator.getInstance("RSA"); // Hace uso del provider BC
-        generadorRSA.initialize(2048,new SecureRandom());
-        KeyPair clavesRSA = generadorRSA.generateKeyPair();
-        PrivateKey clavePrivada = clavesRSA.getPrivate();
-        PublicKey clavePublica = clavesRSA.getPublic();
+//        KeyPairGenerator generadorRSA = KeyPairGenerator.getInstance("RSA"); // Hace uso del provider BC
+//        generadorRSA.initialize(2048,new SecureRandom());
+//        KeyPair clavesRSA = generadorRSA.generateKeyPair();
+//        PrivateKey clavePrivada = clavesRSA.getPrivate();
+//        PublicKey clavePublica = clavesRSA.getPublic();
 
 
 
