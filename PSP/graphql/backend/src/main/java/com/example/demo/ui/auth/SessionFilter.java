@@ -1,11 +1,13 @@
 package com.example.demo.ui.auth;
 
+import com.example.demo.domain.modelo.graphql.PoiInput;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
@@ -21,7 +23,6 @@ public class SessionFilter extends OncePerRequestFilter {
         {
             SecurityContextHolder.getContext().setAuthentication((org.springframework.security.core.Authentication) request.getSession().getAttribute("LOGIN"));
         }
-
         filterChain.doFilter(request, response);
     }
 }
