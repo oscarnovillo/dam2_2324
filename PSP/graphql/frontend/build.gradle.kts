@@ -3,6 +3,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     id("org.springframework.boot") version "3.2.2"
     id("io.spring.dependency-management") version "1.1.4"
+    application
     kotlin("jvm") version "1.9.22"
     kotlin("plugin.spring") version "1.9.22"
     id("com.apollographql.apollo3").version("3.7.5")
@@ -11,6 +12,11 @@ plugins {
 
 group = "org.example"
 version = "0.0.1-SNAPSHOT"
+
+application {
+    mainModule.set("frontend")
+    mainClass.set("org.example.frontend.MainFX")
+}
 
 java {
     sourceCompatibility = JavaVersion.VERSION_21
@@ -29,8 +35,8 @@ dependencies {
 
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-javafx:1.6.4")
 
-    implementation("org.openjfx:javafx-base:17")
-    implementation("org.openjfx:javafx-fxml:17")
+    implementation("org.openjfx:javafx-base:16")
+    implementation("org.openjfx:javafx-fxml:16")
 
     implementation("com.apollographql.apollo3:apollo-api:3.7.5")
 
@@ -50,7 +56,11 @@ tasks.withType<KotlinCompile> {
 tasks.withType<Test> {
     useJUnitPlatform()
 }
+javafx {
+    version = "16"
 
+    modules = listOf("javafx.controls","javafx.fxml")
+}
 
 apollo {
     service("rickMorty") {

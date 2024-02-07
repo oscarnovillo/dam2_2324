@@ -5,4 +5,6 @@ t	java:S120"ZRename this package name to match the regular expression '^[a-z_
 ]
 java:S6813"BRemove this field injection and use constructor injection instead.(Áº–Žüÿÿÿÿ
 V	java:S125&"<This block of commented-out lines of code should be removed.(ôäµ±þÿÿÿÿ
+r
+java:S2441."PMake "CredentialValidationResult" serializable or don't store it in the session.(€´«Üúÿÿÿÿ8Ý¦š‚×1
 C	java:S1087")Either remove or fill this block of code.(¨¾¶§þÿÿÿÿ

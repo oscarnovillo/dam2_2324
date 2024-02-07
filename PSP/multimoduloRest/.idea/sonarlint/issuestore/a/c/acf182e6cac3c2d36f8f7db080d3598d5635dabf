@@ -3,6 +3,16 @@ t	java:S120"ZRename this package name to match the regular expression '^[a-z_
 —
 java:S1186:"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(‹¨¯¿
 _
-java:S1854)"=Remove this useless assignment to local variable "keyConfig".(ŸÄÀÕıÿÿÿÿ8òÍğÅÖ1
+java:S1854)"=Remove this useless assignment to local variable "keyConfig".(ŸÄÀÕıÿÿÿÿ8·¡Öş×1
+‚
+java:S1989 "`Handle the following exception that could be thrown by "secretKeyFor": IllegalArgumentException.(›şÿÍøÿÿÿÿ8»¡Öş×1
+|
+java:S1989%"_Handle the following exception that could be thrown by "getInstance": NoSuchAlgorithmException.(®¾¡8¼¡Öş×1
+{
+java:S1989)"YHandle the following exception that could be thrown by "hmacShaKeyFor": WeakKeyException.(ŸÄÀÕıÿÿÿÿ8¾¡Öş×1
 P
-java:S1481)".Remove this unused "keyConfig" local variable.(ŸÄÀÕıÿÿÿÿ8ùÍğÅÖ1
+java:S1481)".Remove this unused "keyConfig" local variable.(ŸÄÀÕıÿÿÿÿ8¿¡Öş×1
+y
+java:S19894"WHandle the following exception that could be thrown by "signWith": InvalidKeyException.(˜±ƒøÿÿÿÿ8Â¡Öş×1
+r
+java:S19896"PHandle the following exception that could be thrown by "getWriter": IOException.(ÆÎ÷Îûÿÿÿÿ8Ê¡Öş×1
