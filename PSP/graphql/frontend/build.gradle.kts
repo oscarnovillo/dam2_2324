@@ -20,7 +20,9 @@ application {
 
 java {
     sourceCompatibility = JavaVersion.VERSION_21
+//    modularity.inferModulePath.set(true)
 }
+
 
 repositories {
     mavenCentral()
@@ -29,9 +31,9 @@ repositories {
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter")
     implementation("org.jetbrains.kotlin:kotlin-reflect")
-    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+//    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     implementation("org.springframework.boot:spring-boot-starter-security")
-    implementation("org.springframework.boot:spring-boot-starter-data-jdbc")
+//    implementation("org.springframework.boot:spring-boot-starter-data-jdbc")
 
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-javafx:1.6.4")
 
@@ -52,7 +54,12 @@ tasks.withType<KotlinCompile> {
         jvmTarget = "21"
     }
 }
-
+//tasks.named("compileJava", JavaCompile::class.java) {
+//    options.compilerArgumentProviders.add(CommandLineArgumentProvider {
+//        // Provide compiled Kotlin classes to javac – needed for Java/Kotlin mixed sources to work
+//        listOf("--patch-module", "frontend=${sourceSets["main"].output.asPath}")
+//    })
+//}
 tasks.withType<Test> {
     useJUnitPlatform()
 }

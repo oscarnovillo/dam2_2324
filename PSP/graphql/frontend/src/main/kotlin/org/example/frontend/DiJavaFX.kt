@@ -6,13 +6,14 @@ import javafx.stage.Stage
 import org.springframework.boot.builder.SpringApplicationBuilder
 import org.springframework.context.ApplicationEvent
 import org.springframework.context.ConfigurableApplicationContext
+import org.springframework.stereotype.Component
 
-
+@Component
 class DiJavaFX (
-    private var applicationContext: ConfigurableApplicationContext
+
 ) : Application(){
 
-
+    private lateinit var applicationContext: ConfigurableApplicationContext
 
     override fun init() {
         super.init()
