@@ -1,0 +1,5 @@
+query VisitasQuery {
+    getVisitas {
+        id
+    }
+}

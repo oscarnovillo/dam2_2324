@@ -31,8 +31,8 @@ class PrincipalController(
         var panePantalla: Pane? = null
         try {
             val fxmlLoader = FXMLLoader()
-            panePantalla = fxmlLoader.load(javaClass.getResourceAsStream(ruta))
             fxmlLoader.setControllerFactory { context.getBean(it) }
+            panePantalla = fxmlLoader.load(javaClass.getResourceAsStream(ruta))
             root.center = panePantalla
         } catch (e: IOException) {
             println(e.message)
@@ -40,9 +40,10 @@ class PrincipalController(
         return panePantalla
     }
 
-    override fun initialize(p0: URL?, p1: ResourceBundle?) {
 
+    override fun initialize(location: URL?, resources: ResourceBundle?) {
         cargarPantalla("/fxml/pantalla1.fxml")
     }
+
 
 }

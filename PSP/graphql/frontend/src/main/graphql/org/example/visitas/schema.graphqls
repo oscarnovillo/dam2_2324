@@ -1,0 +1,51 @@
+scalar Date
+
+type Ciudad{
+    id : ID!
+    nombre: String
+    pois: [Poi]
+}
+
+
+type Poi{
+    id : ID!
+    latitud : Float
+    longitud : Float
+    nombre : String
+    tipo : String
+    ciudad : Ciudad
+}
+
+type Visita{
+    id : ID!
+    fechaInicial : Date
+    fechaFinal : Date
+    pois : [Poi]
+}
+
+type Query {
+    getCiudades : [Ciudad]!
+    getVisitas : [Visita]!
+    getPois : [Poi]!
+}
+
+type Mutation {
+    addCiudad(nombre: String!) : Ciudad
+    addPoi(poi: PoiInput!) : Poi
+#    addListaPois(pois: [PoiInput]!) : [Poi]
+#    addPoi(nombre: String!, latitud: Float!, longitud: Float!, tipo: String!, ciudadId: ID!) : Poi
+#    addVisita(fechaInicial: Date!, fechaFinal: Date!, poiIds: [ID]!) : Visitas
+}
+
+
+input CiudadInput {
+    id: ID
+    nombre: String
+}
+input PoiInput {
+    nombre: String
+    latitud: Float
+    longitud: Float
+    tipo: String
+    ciudad: CiudadInput
+}

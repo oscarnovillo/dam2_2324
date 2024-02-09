@@ -1,8 +1,0 @@
-query FirstQuery {
-
-    characters(page:2){
-        results{
-            name
-        }
-    }
-}

@@ -1,0 +1,19 @@
+query GetPois {
+
+
+    getPois {
+        id
+        latitud
+        longitud
+        nombre
+        tipo
+        ciudad {
+            nombre
+            pois {
+                id
+                nombre
+            }
+        }
+    }
+
+}
